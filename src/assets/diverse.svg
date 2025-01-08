@@ -1,0 +1,18 @@
+<svg width="140" height="140" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Frame 1000007177">
+<path id="Union" opacity="0.4" fill-rule="evenodd" clip-rule="evenodd" d="M49 58C60.598 58 70 48.598 70 37C70 25.402 60.598 16 49 16C37.402 16 28 25.402 28 37C28 48.598 37.402 58 49 58ZM104 70C108.971 70 113 65.9706 113 61C113 56.0294 108.971 52 104 52C99.0294 52 95 56.0294 95 61C95 65.9706 99.0294 70 104 70ZM136 104.5C136 116.926 125.926 127 113.5 127C101.074 127 91 116.926 91 104.5C91 92.0736 101.074 82 113.5 82C125.926 82 136 92.0736 136 104.5ZM32 132C45.8071 132 57 120.807 57 107C57 93.1929 45.8071 82 32 82C18.1929 82 7 93.1929 7 107C7 120.807 18.1929 132 32 132Z" fill="url(#paint0_radial_123_20084)"/>
+<path id="Vector 1063" d="M97.5771 46.4229L42.4228 101.577" stroke="white"/>
+<path id="Vector 1064" d="M97.5771 101.577L42.4228 46.4228" stroke="white"/>
+<circle id="Ellipse 3679" cx="70" cy="74" r="13.5" fill="#05080A" stroke="white"/>
+<circle id="Ellipse 3680" cx="99" cy="43" r="8.5" fill="#05080A" stroke="white"/>
+<circle id="Ellipse 3681" cx="99" cy="105" r="8.5" fill="#05080A" stroke="white"/>
+<circle id="Ellipse 3682" cx="41" cy="105" r="8.5" fill="#05080A" stroke="white"/>
+<circle id="Ellipse 3683" cx="41" cy="43" r="8.5" fill="#05080A" stroke="white"/>
+</g>
+<defs>
+<radialGradient id="paint0_radial_123_20084" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(71.5 68.5) scale(46 60.6969)">
+<stop stop-color="#0BCCBF"/>
+<stop offset="1" stop-color="#0BCCBF" stop-opacity="0"/>
+</radialGradient>
+</defs>
+</svg>
