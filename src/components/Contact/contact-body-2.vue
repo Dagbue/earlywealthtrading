@@ -10,7 +10,7 @@
         <div class="TopIconCard_iconBox__SgyKn TopIconCard_bgPrimary__Ss469" style="opacity: 1; transition: transform 0.6s cubic-bezier(0.15, 0.55, 0.55, 1) 0.1s, opacity 0.45s cubic-bezier(0.15, 0.55, 0.55, 1) 0.1s; transform-style: preserve-3d; transform-origin: center bottom; transform: none;"><svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 32 32" fill="none"><g clip-path="url(#clip0_244_18102)"><path d="M28 7L16 18L4 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M4 7H28V24C28 24.2652 27.8946 24.5196 27.7071 24.7071C27.5196 24.8946 27.2652 25 27 25H5C4.73478 25 4.48043 24.8946 4.29289 24.7071C4.10536 24.5196 4 24.2652 4 24V7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M13.8187 16L4.30872 24.7175" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M27.6918 24.7175L18.1818 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g><defs><clipPath id="clip0_244_18102"><rect width="32" height="32" fill="currentColor"></rect></clipPath></defs></svg></div>
         <p class="content-title">Email</p>
         <p class="content-text">Send an email to
-          <a style="font-weight: bold;color: #748793;" href="mailto:support@earlywealthtrd.com">support@earlywealthtrd.com</a>
+          <a style="font-weight: bold;color: #748793;" href="mailto:support@earlywealthtrading.com">support@earlywealthtrading.com</a>
           </p>
       </div>
 

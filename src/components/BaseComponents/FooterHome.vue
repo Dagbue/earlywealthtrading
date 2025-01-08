@@ -52,7 +52,7 @@
               <div class="social-logo">
                 <div class="last-div">
                   <i class='bx bx-mail-send' style='color:#ffffff'></i>
-                  <p class="last-div-para"><a href="mailto:support@earlywealthtrd.com">support@earlywealthtrd.com</a></p>
+                  <p class="last-div-para"><a href="mailto:support@earlywealthtrading.com">support@earlywealthtrading.com</a></p>
                 </div>
               </div>
             </div>

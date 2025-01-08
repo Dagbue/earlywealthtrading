@@ -175,7 +175,7 @@
 
               <p class="text-3">Contact support to proceed with this Deposit Method
                 <span class="note-span">
-              <a style="color: rgba(219,101,123,0.6);" href="mailto:support@earlywealthtrd.com" class="para-last">support@earlywealthtrd.com</a>
+              <a style="color: rgba(219,101,123,0.6);" href="mailto:support@earlywealthtrading.com" class="para-last">support@earlywealthtrading.com</a>
             </span>
               </p>
             </div>
@@ -223,7 +223,7 @@
           this.depositMethod === 'TRC20'"
               class="text-3">Note: After making your deposit,kindly send a screenshot/proof of deposit to
             <span class="note-span">
-              <a style="color: rgba(219,101,123,0.6);" href="mailto:support@earlywealthtrd.com" class="para-last">support@earlywealthtrd.com</a>
+              <a style="color: rgba(219,101,123,0.6);" href="mailto:support@earlywealthtrading.com" class="para-last">support@earlywealthtrading.com</a>
             </span> for documentation and to boost the funding process
           </p>
 
