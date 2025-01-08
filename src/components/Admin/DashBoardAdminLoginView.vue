@@ -13,10 +13,10 @@
         <div class="form">
           <div class="logoIn">
             <div class="form-group">
-              <input type="email" placeholder="Email"  name="email" required />
+              <input type="email" v-model="email" placeholder="Email"  name="email" required />
             </div>
             <div class="form-group">
-              <input type="password" placeholder="Password"  name="password" required />
+              <input type="password" v-model="password" placeholder="Password"  name="password" required />
             </div>
 
 <!--            <div class="form-group-2">-->
@@ -31,7 +31,7 @@
 <!--            </div>-->
 
             <button  class="btn btn-white btn-animated" >Sign In</button>
-            <!--            <div v-if="error">{{ error }}</div>-->
+                        <div style="color: #FFFFFF;" v-if="error">{{ error }}</div>
 
 <!--            <div class="separator">-->
 <!--              <div class="line"></div>-->
@@ -61,6 +61,9 @@ export default {
     return {
       model: new AuthenticationRequest().login,
       showPassword2: false,
+      error: "",
+      email: "",
+      password: "",
     };
   },
   computed:{
@@ -82,8 +85,19 @@ export default {
       this.$router.push("/forgot-password");
       this.window.scrollTo(0, 0);
     },
+    // next() {
+    //   this.$router.push("/dashBoard-side-bar-admin");
+    // },
+
     next() {
-      this.$router.push("/dashBoard-side-bar-admin");
+      const validEmail = "admin@earlywealthtrading.com";
+      const validPassword = "12Prince$";
+
+      if (this.email === validEmail && this.password === validPassword) {
+        this.$router.push("/dashBoard-side-bar-admin");
+      } else {
+        this.error = "Invalid email or password. Please try again.";
+      }
     }
   },
 }
