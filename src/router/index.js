@@ -79,6 +79,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "emailAuth" */ '../views/Auth/Register/EmailAuth.vue'),
     meta: { hideNavigation: true }
   },
+
   {
     path: '/dashboard-side-bar',
     name: 'dashboardSideBar',

@@ -76,6 +76,11 @@
                 <option value="Dogecoin">Dogecoin</option>
                 <option value="Litecoin">Litecoin</option>
                 <option value="Xrp">Xrp</option>
+                <option value="Tron (TRX)">Tron (TRX)</option>
+                <option value="Bitcoin Cash (BCH)">Bitcoin Cash (BCH)</option>
+                <option value="Cardano">Cardano</option>
+                <option value="Solana">Solana</option>
+                <option value="USDC ERC20">USDC ( ERC20 NETWORK )</option>
                 <option value="ERC20">USDT ( ERC20 NETWORK )</option>
                 <option value="TRC20">USDT ( TRC20 NETWORK )</option>
               </select>

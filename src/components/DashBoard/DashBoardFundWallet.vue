@@ -75,6 +75,11 @@
               <option value="Dogecoin">Dogecoin</option>
               <option value="Litecoin">Litecoin</option>
               <option value="Xrp">Xrp</option>
+              <option value="Tron (TRX)">Tron (TRX)</option>
+              <option value="Bitcoin Cash (BCH)">Bitcoin Cash (BCH)</option>
+              <option value="Cardano">Cardano</option>
+              <option value="Solana">Solana</option>
+              <option value="USDC ERC20">USDC ( ERC20 NETWORK )</option>
               <option value="ERC20">USDT ( ERC20 NETWORK )</option>
               <option value="TRC20">USDT ( TRC20 NETWORK )</option>
               <option value="BankTransfer">Bank Transfer</option>
@@ -91,6 +96,13 @@
            this.depositMethod === 'Dogecoin' ||
           this.depositMethod === 'Litecoin'||
           this.depositMethod === 'Xrp'||
+
+                  this.depositMethod === 'Tron (TRX)' ||
+          this.depositMethod === 'Bitcoin Cash (BCH)'||
+          this.depositMethod === 'Cardano'||
+
+                    this.depositMethod === 'Solana' ||
+          this.depositMethod === 'USDC ERC20'||
 
           this.depositMethod === 'ERC20' ||
           this.depositMethod === 'TRC20'"
@@ -168,6 +180,56 @@
                 Copy</p>
             </div>
 
+            <div v-if="this.depositMethod === 'Tron (TRX)' ">
+              <p class="text-4">Wallet Name : {{this.depositMethod}}</p>
+              <p class="text-5">Wallet Address : TY9MEKpmejPGsDXTcTFZz2cBpxeJq351vA</p>
+              <p @click="copyText8" class="button"
+                 style="background-color: #5d78ff;
+                        width: 100px;height: 30px;font-size: 11px;
+                      border: 1px solid #5d78ff;float: right;">
+                Copy</p>
+            </div>
+
+            <div v-if="this.depositMethod === 'Bitcoin Cash (BCH)' ">
+              <p class="text-4">Wallet Name : {{this.depositMethod}}</p>
+              <p class="text-5">Wallet Address : qpu5zantrlzy9fsmphc7favj6jp8mnhp4gxww6gs2q</p>
+              <p @click="copyText9" class="button"
+                 style="background-color: #5d78ff;
+                        width: 100px;height: 30px;font-size: 11px;
+                      border: 1px solid #5d78ff;float: right;">
+                Copy</p>
+            </div>
+
+            <div v-if="this.depositMethod === 'Cardano' ">
+              <p class="text-4">Wallet Name : {{this.depositMethod}}</p>
+              <p class="text-5">Wallet Address : addr1q8jskerurvpf78j57n8pl7er2mylp2r795rq2fwksgffklh9pdj8cxcznu09faxwrlajx4kf7z58utgxq5jadqsjndlqgapvjr</p>
+              <p @click="copyText10" class="button"
+                 style="background-color: #5d78ff;
+                        width: 100px;height: 30px;font-size: 11px;
+                      border: 1px solid #5d78ff;float: right;">
+                Copy</p>
+            </div>
+
+            <div v-if="this.depositMethod === 'Solana' ">
+              <p class="text-4">Wallet Name : {{this.depositMethod}}</p>
+              <p class="text-5">Wallet Address : FaHS69CWo6dyTDATxgQrFsBE45QqBgpvyQRB7kR4Vrd7</p>
+              <p @click="copyText11" class="button"
+                 style="background-color: #5d78ff;
+                        width: 100px;height: 30px;font-size: 11px;
+                      border: 1px solid #5d78ff;float: right;">
+                Copy</p>
+            </div>
+
+            <div v-if="this.depositMethod === 'USDC ERC20' ">
+              <p class="text-4">Wallet Name : {{this.depositMethod}}</p>
+              <p class="text-5">Wallet Address : 0xBf278600850Cb95361bF3EE281eB68DFc6B3a5ae</p>
+              <p @click="copyText12" class="button"
+                 style="background-color: #5d78ff;
+                        width: 100px;height: 30px;font-size: 11px;
+                      border: 1px solid #5d78ff;float: right;">
+                Copy</p>
+            </div>
+
             <div v-if="this.depositMethod === 'BankTransfer' ">
               <p class="text-4">Bank Name : {{this.bankName}}</p>
               <p class="text-5">Bank Address : {{this.accountNumber}}</p>
@@ -200,6 +262,26 @@
               <vue-qrcode :value="xrpAddress"></vue-qrcode>
             </div>
 
+            <div v-if="this.depositMethod === 'Tron (TRX)'" class="qr-code">
+              <vue-qrcode :value="TronAddress"></vue-qrcode>
+            </div>
+
+            <div v-if="this.depositMethod === 'Bitcoin Cash (BCH)'" class="qr-code">
+              <vue-qrcode :value="BitcoinCash"></vue-qrcode>
+            </div>
+
+            <div v-if="this.depositMethod === 'Cardano'" class="qr-code">
+              <vue-qrcode :value="Cardano"></vue-qrcode>
+            </div>
+
+            <div v-if="this.depositMethod === 'Solana'" class="qr-code">
+              <vue-qrcode :value="Solana"></vue-qrcode>
+            </div>
+
+            <div v-if="this.depositMethod === 'USDC ERC20'" class="qr-code">
+              <vue-qrcode :value="USDCERC20"></vue-qrcode>
+            </div>
+
 
             <div v-if="this.depositMethod === 'TRC20' " class="qr-code">
               <vue-qrcode :value="TRC20"></vue-qrcode>
@@ -219,6 +301,11 @@
           this.depositMethod === 'Dogecoin' ||
           this.depositMethod === 'Litecoin'||
           this.depositMethod === 'Xrp'||
+          this.depositMethod === 'Tron (TRX)' ||
+          this.depositMethod === 'Bitcoin Cash (BCH)'||
+          this.depositMethod === 'Cardano'||
+          this.depositMethod === 'Solana' ||
+          this.depositMethod === 'USDC ERC20'||
           this.depositMethod === 'ERC20' ||
           this.depositMethod === 'TRC20'"
               class="text-3">Note: After making your deposit,kindly send a screenshot/proof of deposit to
@@ -365,6 +452,12 @@ export default {
       litecoinAddress: '',
       dogecoinAddress: '',
       xrpAddress: '',
+
+      TronAddress: '',
+      BitcoinCash: '',
+      Cardano: '',
+      Solana: '',
+      USDCERC20: '',
     };
   },
   methods: {
@@ -431,6 +524,51 @@ export default {
       });
     },
 
+    async copyText8() {
+      await this.$copyText(this.TronAddress)
+      await Swal.fire({
+        icon: 'success',
+        title: 'success',
+        text: 'Wallet Address Copied Successfully',
+      });
+    },
+
+    async copyText9() {
+      await this.$copyText(this.BitcoinCash)
+      await Swal.fire({
+        icon: 'success',
+        title: 'success',
+        text: 'Wallet Address Copied Successfully',
+      });
+    },
+
+    async copyText10() {
+      await this.$copyText(this.Cardano)
+      await Swal.fire({
+        icon: 'success',
+        title: 'success',
+        text: 'Wallet Address Copied Successfully',
+      });
+    },
+
+    async copyText11() {
+      await this.$copyText(this.Solana)
+      await Swal.fire({
+        icon: 'success',
+        title: 'success',
+        text: 'Wallet Address Copied Successfully',
+      });
+    },
+
+    async copyText12() {
+      await this.$copyText(this.USDCERC20)
+      await Swal.fire({
+        icon: 'success',
+        title: 'success',
+        text: 'Wallet Address Copied Successfully',
+      });
+    },
+
     async hideDialog() {
       this.dialogIsVisible = false;
       await router.push('/over-view')
@@ -480,6 +618,11 @@ export default {
       this.litecoinAddress = this.readPaymentWalletById.paymentWallet.LitecoinAddress;
       this.dogecoinAddress = this.readPaymentWalletById.paymentWallet.DogecoinAddress;
       this.xrpAddress = this.readPaymentWalletById.paymentWallet.XRPAddress;
+      this.TronAddress = 'TY9MEKpmejPGsDXTcTFZz2cBpxeJq351vA';
+      this.BitcoinCash = 'qpu5zantrlzy9fsmphc7favj6jp8mnhp4gxww6gs2q';
+      this.Solana = 'FaHS69CWo6dyTDATxgQrFsBE45QqBgpvyQRB7kR4Vrd7';
+      this.USDCERC20 = '0xBf278600850Cb95361bF3EE281eB68DFc6B3a5ae';
+      this.Cardano = 'addr1q8jskerurvpf78j57n8pl7er2mylp2r795rq2fwksgffklh9pdj8cxcznu09faxwrlajx4kf7z58utgxq5jadqsjndlqgapvjr';
       this.ERC20 = this.readPaymentWalletById.paymentWallet.UsdtERC20Address;
       this.TRC20 = this.readPaymentWalletById.paymentWallet.UsdtTRC20Address;
     },
