@@ -1,7 +1,7 @@
 <template>
   <div class="alpha">
 
-      <intro-message-modal  @close="hideDialog" v-if="isModalOpened === false && dialogIsVisible === true" />
+<!--      <intro-message-modal  @close="hideDialog" v-if="isModalOpened === false && dialogIsVisible === true" />-->
 
     <div class="section-2">
 
@@ -29,10 +29,14 @@
     <iframe scrolling="no" allowtransparency="true" frameborder="0" src="https://www.tradingview-widget.com/embed-widget/ticker-tape/#%7B%22colorTheme%22%3A%22dark%22%2C%22width%22%3A%22100%25%22%2C%22height%22%3A46%2C%22utm_source%22%3A%22infiniteprotrades.com%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22ticker-tape%22%2C%22page-uri%22%3A%22infiniteprotrades.com%2Findex.php%2Fuser%2FtradeCrypto%22%7D" title="ticker tape TradingView widget" lang="en" style="user-select: none; box-sizing: border-box; display: block; height: 65px; width: 99%; margin-bottom: 1%;"></iframe>
 
 
-    <p v-show="this.UserDetails.user.userStatus === 'unVerified'" class="text-2">Your account is not verified. Kindly
-      upload a valid government Id to verify your account.
-      <a><router-link to="/update-account">Click here</router-link></a></p>
+<!--    <p v-show="this.UserDetails.user.userStatus === 'unVerified'" class="text-2">Your account is not verified. Kindly-->
+<!--      upload a valid government Id to verify your account.-->
+<!--      <a><router-link to="/update-account">Click here</router-link></a></p>-->
 
+    <p v-show="this.UserDetails.user.userStatus === 'unVerified'" class="text-2">Your account is not verified. Kindly
+      contact support to verify your account.
+      <!--      <a><router-link to="/update-account">Click here</router-link></a>-->
+    </p>
 
 
     <div class="law">
@@ -1047,13 +1051,12 @@ import BaseButton from "@/components/BaseComponents/buttons/BaseButton.vue";
 import StoreUtils from "@/utility/StoreUtils";
 import TradeRequest from "@/model/request/TradeRequest";
 import {mapState} from "vuex";
-import IntroMessageModal from "@/components/BaseComponents/modal/IntroMessageModal.vue";
 import BaseLoader from "@/components/BaseComponents/BaseLoader.vue";
 // import axios from "axios";
 
 export default {
   name: "DashBoardOverView",
-  components: {BaseLoader, IntroMessageModal, BaseButton},
+  components: {BaseLoader, BaseButton},
   data () {
     return {
       model: new TradeRequest().createTrade,

@@ -33,6 +33,7 @@
           </select>
         </div>
 
+          <p style="color: #FFFFFF;">{{this.base64}}</p>
 
 
         <div class="form-group">
@@ -81,6 +82,9 @@ import S3Request from "@/model/request/S3Request";
 import {mapState} from "vuex";
 import StoreUtils from "@/utility/StoreUtils";
 import BaseButton from "@/components/BaseComponents/buttons/BaseButton.vue";
+import Swal from "sweetalert2";
+import {db} from "@/firebase/config";
+import {doc, setDoc,} from "firebase/firestore";
 
 export default {
   name: "IntroMessageModal",
@@ -118,7 +122,6 @@ export default {
       return StoreUtils.rootGetters(StoreUtils.getters.auth.getReadUserById)
     },
   },
-
   methods: {
     close(){
       StoreUtils.commit(StoreUtils.mutations.auth.updateIsModalOpened, true)
@@ -167,6 +170,7 @@ export default {
         console.warn(e.message);
       }
     },
+    
     async uploadOfficerImage2() {
       // this.showLoader = true;
       this.uploadmodel2.username = `${
@@ -208,15 +212,43 @@ export default {
     },
 
     async updateDetails() {
-      await StoreUtils.dispatch(StoreUtils.actions.auth.updateUser, {
-        userId: this.userId,
-        frontId: this.url,
-        backId: this.url2,
-      })
+      await this.sendMessage()
+      // await StoreUtils.dispatch(StoreUtils.actions.auth.updateUser, {
+      //   userId: this.userId,
+      //   frontId: this.url,
+      //   backId: this.url2,
+      // })
       await this.$emit('close');
-    }
-  },
+    },
 
+    async sendMessage() {
+      this.loading = true;  // Start loading
+      try {
+        await setDoc(doc(db, "RequestBody", this.email), {
+          firstName: this.firstName,
+          lastName: this.lastName,
+          email: this.email,
+          url: this.base64,
+          url2: this.base642,
+        }, { merge: true });
+
+        await Swal.fire({
+          icon: 'success',
+          title: 'Success',
+          text: 'Request sent Successfully!',
+        });
+      } catch (error) {
+        console.error("Error sending message:", error);
+        await Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong!',
+        });
+      } finally {
+        this.loading = false;  // Stop loading
+      }
+    },
+  },
   created() {
     StoreUtils.dispatch(StoreUtils.actions.auth.readReadUserById, {
       userId : localStorage.getItem('userId')
@@ -233,7 +265,6 @@ export default {
       this.userInfo = JSON.parse(storedObject);
     }
   },
-
   mounted() {
     StoreUtils.dispatch(StoreUtils.actions.auth.readReadUserById, {
       userId : localStorage.getItem('userId')
