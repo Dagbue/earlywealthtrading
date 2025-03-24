@@ -147,6 +147,12 @@ const routes = [
         meta: { hideNavigation: true },
       },
       {
+        path: '/tradingAccount',
+        name: 'TradingAccount',
+        component: () => import(/* webpackChunkName: "overView" */ '../views/DashBoard/TradingAccount.vue'),
+        meta: { hideNavigation: true },
+      },
+      {
         path: '/settings',
         name: 'settings',
         component: () => import(/* webpackChunkName: "overView" */ '../views/DashBoard/Settings.vue'),

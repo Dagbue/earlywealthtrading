@@ -51,8 +51,8 @@
             <th>End Price</th>
             <th>Leverage</th>
             <th>Market Type</th>
-            <th>Payout</th>
-            <th>Amount</th>
+            <th>Payout Amount</th>
+            <th>Amount Traded</th>
             <th>Symbol</th>
             <th>Date</th>
             <th>Status</th>
@@ -81,10 +81,10 @@
             <td data-label="End Price">{{child.endPrice}}</td>
             <td data-label="Leverage">{{child.leverage}}</td>
             <td data-label="Market Type">{{child.marketType}}</td>
-            <td data-label="Payout">{{child.expectedPayout}}</td>
-            <td data-label="Amount">{{child.amountTrade}}</td>
+            <td data-label="Payout Amount">{{child.expectedPayout}}</td>
+            <td data-label="Amount Traded">{{child.amountTrade}}</td>
             <td data-label="Symbol">{{child.symbolTraded}}</td>
-            <td data-label="Date">{{child.createdAt | formatDate}}</td>
+            <td data-label="Date">{{child.createdAt | formatDate2}}</td>
             <td data-label="Status">
               <div>
                 <p class="status-won" v-if="child.tradeStatus === 'won'">{{child.tradeStatus | lowercase}}</p>

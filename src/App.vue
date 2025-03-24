@@ -37,6 +37,10 @@ input{
   font-family: 'BR-Firma-Regular', sans-serif;
   font-size: 16.5px;
 }
+select{
+  font-family: 'BR-Firma-Regular', sans-serif;
+  font-size: 16.5px;
+}
 textarea{
   font-family: 'BR-Firma-Regular', sans-serif;
 }

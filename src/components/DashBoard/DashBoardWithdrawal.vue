@@ -7,7 +7,7 @@
 
         <form @submit.prevent="showDialog" id="InteracFundingCard" class="dashboard-body-wrapper align-center">
 
-          <h4 class="header">Follow the instructions below for withdrawal using Digital Currency</h4>
+          <p class="header">Follow the instructions below for withdrawal using Digital Currency</p>
           <hr/>
           <div class="margin-top margin-medium">
 
@@ -292,7 +292,7 @@ export default {
 
 .header{
   font-weight: 700;
-  font-size: 19px;
+  font-size: 17px;
   /*line-height: 25px;*/
   color: #ffffff;
 }
@@ -379,7 +379,7 @@ input{
   -webkit-transition: 0.3s;
   padding-top: 30px;
   padding-bottom: 30px;
-  height: 45px;
+
   transition: 0.3s;
   outline: none;
   color: #ffffff;
@@ -401,7 +401,7 @@ select{
   -webkit-transition: 0.3s;
   padding-top: 30px;
   padding-bottom: 30px;
-  height: 45px;
+
   transition: 0.3s;
   outline: none;
   color: #ffffff;
@@ -438,10 +438,7 @@ option{
   margin-top: 5%;
 }
 
-.header{
-  color: #FFFFFF;
-  font-size: 20px;
-}
+
 
 .connected-banks-list{
   margin-top: 1%;

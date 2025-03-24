@@ -46,13 +46,18 @@
         </router-link>
 
         <router-link to="/withdrawal">
-          <li>
+          <li @click="handleClick2">
             <a class="hover">
               <img src="../../assets/coin-stack.svg" alt="logo" class="link-img" />
               <span class="links-name">Withdrawal</span>
+<!--              <select class="withdrawal-dropdown" v-model="dropdown" @change="handleClick2">-->
+<!--                <option value="withdrawal">Withdrawal</option>-->
+<!--                <option value="trading">Trading Account</option>-->
+<!--              </select>-->
             </a>
           </li>
         </router-link>
+
 
         <router-link to="/packages">
           <li>
@@ -124,6 +129,10 @@
           <a>
             <img src="../../assets/coin-stack.svg" alt="logo" class="link-img" />
             <router-link to="/withdrawal" class="">Withdrawal</router-link>
+<!--            <select style="font-size: 14px; width: 100%" class="withdrawal-dropdown" v-model="dropdown" @change="handleClick2">-->
+<!--              <option value="withdrawal">Withdrawal</option>-->
+<!--              <option value="trading">Trading Account</option>-->
+<!--            </select>-->
           </a>
         </li>
         <li @click="toggleMobileNav2">
@@ -179,6 +188,7 @@ export default {
       mobile: false,
       mobileNav: false,
       windowWidth: window.innerWidth, // Initialize directly with the window's innerWidth
+      dropdown: 'withdrawal'
     };
   },
   created() {
@@ -192,6 +202,16 @@ export default {
     async handleClick() {
       await localStorage.clear();
       await router.push('/login')
+    },
+    async handleClick2() {
+
+      if(this.dropdown === 'withdrawal') {
+        await router.push('/withdrawal')
+      }else {
+        await router.push('/tradingAccount')
+      }
+
+
     },
     // This method is triggered when the customEvent is received
     parentFunction() {
@@ -372,7 +392,7 @@ body{
   z-index: 99;
   /*padding-right: 7%;*/
   height: 100vh;
-  width: 240px;
+  width: 245px;
   /*height: 100%;*/
   background-color: #0f171c;
   font-size: 16px;
@@ -451,6 +471,19 @@ body{
   font-size: 20px;
   border-radius: 8px;
   color: #222222;
+}
+
+.withdrawal-dropdown{
+  background: transparent;
+  border: none;
+  color: #FFFFFF;
+  font-size: 16px;
+}
+
+
+
+.withdrawal-dropdown option{
+
 }
 
 @media (max-width: 990px) {
