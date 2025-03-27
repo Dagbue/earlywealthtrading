@@ -20,7 +20,7 @@
               :max="max"
               :step="step"
               v-model="selectedValue"
-              @input="snapToClosest"
+              @input="handleInput"
           />
 
           <!-- Labels for the markers -->
@@ -36,11 +36,15 @@
           </div>
         </div>
 
-        <p class="last">If the rate changes between the time your order is placed and confirmed it's called "slippage". Your Swap will
-        automatically cancel if slippage exceeds your "max slippage" setting.</p>
+        <p class="last">Your account does not have up to Eth to start this transfer.</p>
 
         <br/>
-        <button @click="close">Proceed</button>
+
+        <div class="button-container">
+          <p>${{ slippagePercentage.toFixed(2) }}</p>
+          <button @click="close2">Add</button>
+        </div>
+
 
       </div>
 
@@ -51,18 +55,24 @@
 <script>
 
 
+import StoreUtils from "@/utility/StoreUtils";
+import {mapState} from "vuex";
+import router from "@/router";
+
 export default {
   name: "WithdrawalModal2",
   data() {
     return {
-      points: [10, 50, 100], // Allowed values
+      points: [10, 15, 20], // Allowed values
       selectedValue: 10, // Default value
       min: 10,
-      max: 100,
+      max: 20,
       step: 1, // Smallest possible increment
+      maxSlippage: 10, // Default slippage
+      calculatedSlippage: 0, // Holds the calculated slippage amount
     };
   },
-  emits: ['close'],
+  emits: ['close', 'slippageChanged'],
   methods:{
     async close() {
       await this.$emit('close')
@@ -71,6 +81,19 @@ export default {
       //   title: 'Pending',
       //   text: 'Withdrawal Request Pending',
       // });
+    },
+    async close2() {
+      await router.push("/fund-wallet")
+      await this.$emit('close')
+      // await Swal.fire({
+      //   icon: 'success',
+      //   title: 'Pending',
+      //   text: 'Withdrawal Request Pending',
+      // });
+    },
+    handleInput() {
+      this.snapToClosest();
+      this.$emit('slippageChanged', this.selectedValue); // Emit the event
     },
     snapToClosest() {
       // Find the closest valid point
@@ -86,9 +109,50 @@ export default {
       return ((value - this.min) / (this.max - this.min)) * 100;
     },
   },
+  computed:{
+    UserInfo() {
+      return StoreUtils.rootGetters(StoreUtils.getters.auth.getUserInfo)
+    },
+    UserDetails() {
+      return StoreUtils.rootGetters(StoreUtils.getters.auth.getReadUserById)
+    },
+    ...mapState({
+      loading: state => state.trade.loading,
+      auth: state => state.auth,
+      // readUserTrade: state => state.trade.readUserTrade,
+      // bitcoinRate: state => state.auth.bitcoinRate,
+    }),
+    accountBalance() {
+      return this.UserDetails.user
+          ? this.UserDetails.user.totalDepositedAmount - this.UserDetails.user.totalWithdrawals
+          : 0;
+    },
+    slippagePercentage() {
+      return (this.selectedValue / 100) * this.accountBalance;
+    }
+  },
+  watch: {
+    maxSlippage(newValue) {
+      this.calculatedSlippage = (newValue / 100) * this.accountBalance;
+    }
+  }
 }
 </script>
+
 <style scoped >
+
+.button-container{
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  margin-top: 5%;
+}
+
+.button-container p{
+  color: rgba(87, 233, 100, 0.44);
+  font-size: 16px;
+}
 
 .slider-container {
   position: relative;
@@ -241,12 +305,23 @@ button:hover{
     transform: translateY(0) scale(1);
   }
 }
+
+@media (max-width: 700px) {
+  dialog {
+    top: 14vh;
+    width: 27rem;
+    height: 20rem;
+    left: calc(50% - 14rem);
+    right: 30px;
+  }
+}
+
 @media (max-width: 500px) {
   dialog {
     top: 14vh;
     width: 27rem;
     height: 20rem;
-    left: calc(50% - 10.5rem);
+    left: calc(50% - 11.5rem);
     right: 30px;
   }
   h3{
@@ -256,8 +331,8 @@ button:hover{
     font-size: unset;
   }
   .alpha{
-    width: 340px;
-    height: 340px;
+    width: 370px;
+    height: 410px;
   }
 }
 </style>

@@ -5,7 +5,7 @@
 <!--      <h2 class="header">Withdrawal</h2>-->
       <div class="section-1">
 
-        <form @submit.prevent="showDialog" id="InteracFundingCard" class="dashboard-body-wrapper align-center">
+        <form @submit.prevent="showDialog2" id="InteracFundingCard" class="dashboard-body-wrapper align-center">
 
           <p class="header">Follow the instructions below for withdrawal using Digital Currency</p>
           <hr/>
@@ -165,6 +165,7 @@ import BaseButton from "@/components/BaseComponents/buttons/BaseButton.vue";
 import WithdrawalRequest from "@/model/request/WithdrawalRequest";
 import StoreUtils from "@/utility/StoreUtils";
 import {mapState} from "vuex";
+import Swal from "sweetalert2";
 
 
 export default {
@@ -190,6 +191,13 @@ export default {
     fund(){
       router.push("/fund-wallet")
     },
+
+    clearForm(){
+      this.model.amount = "";
+      this.withdrawalmethod = "";
+      this.model.walletAddress = "";
+    },
+
     async hideDialog() {
       this.dialogIsVisible = false;
       await router.push('/over-view')
@@ -208,6 +216,15 @@ export default {
       this.dialogIsVisible = true;
 
 
+    },
+
+    async showDialog2() {
+      await Swal.fire({
+        icon: 'error',
+        // title: 'Pending',
+        text: 'Funds are still unsettled in the trading account.',
+      });
+      await this.clearForm();
     },
 
     generateRandomString() {

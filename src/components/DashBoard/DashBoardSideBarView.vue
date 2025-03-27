@@ -45,18 +45,18 @@
           </li>
         </router-link>
 
-        <router-link to="/withdrawal">
+
           <li @click="handleClick2">
             <a class="hover">
               <img src="../../assets/coin-stack.svg" alt="logo" class="link-img" />
-              <span class="links-name">Withdrawal</span>
-<!--              <select class="withdrawal-dropdown" v-model="dropdown" @change="handleClick2">-->
-<!--                <option value="withdrawal">Withdrawal</option>-->
-<!--                <option value="trading">Trading Account</option>-->
-<!--              </select>-->
+<!--              <span class="links-name">Withdrawal</span>-->
+              <select class="withdrawal-dropdown" v-model="dropdown" @change="handleClick2">
+                <option value="withdrawal">Withdrawal</option>
+                <option value="trading">Trading Account</option>
+              </select>
             </a>
           </li>
-        </router-link>
+
 
 
         <router-link to="/packages">
@@ -125,14 +125,14 @@
             <router-link to="/fund-wallet" style="font-size: 12.5px;">Fund Your Wallet</router-link>
           </a>
         </li>
-        <li @click="toggleMobileNav2">
+        <li @click="handleClick2">
           <a>
             <img src="../../assets/coin-stack.svg" alt="logo" class="link-img" />
-            <router-link to="/withdrawal" class="">Withdrawal</router-link>
-<!--            <select style="font-size: 14px; width: 100%" class="withdrawal-dropdown" v-model="dropdown" @change="handleClick2">-->
-<!--              <option value="withdrawal">Withdrawal</option>-->
-<!--              <option value="trading">Trading Account</option>-->
-<!--            </select>-->
+<!--            <router-link to="/withdrawal" class="">Withdrawal</router-link>-->
+            <select style="font-size: 14px; width: 100%" class="withdrawal-dropdown" v-model="dropdown" @change="handleClick2">
+              <option value="withdrawal">Withdrawal</option>
+              <option value="trading">Trading Account</option>
+            </select>
           </a>
         </li>
         <li @click="toggleMobileNav2">
@@ -207,10 +207,11 @@ export default {
 
       if(this.dropdown === 'withdrawal') {
         await router.push('/withdrawal')
+        this.mobileNav = false;
       }else {
         await router.push('/tradingAccount')
+        this.mobileNav = false;
       }
-
 
     },
     // This method is triggered when the customEvent is received
@@ -408,7 +409,7 @@ body{
   /*padding-top: 25%;*/
   display: block;
   margin-right: auto;
-  margin-left: auto;
+  margin-left: 8%;
 }
 .dropdown-nav-2 a {
   padding: 0.55em 0;

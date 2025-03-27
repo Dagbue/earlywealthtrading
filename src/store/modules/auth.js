@@ -16,6 +16,7 @@ export const state = {
   readUserById: null,
   readAllUsers: [],
   bitcoinRate: null,
+  ethereumRate: null,
   isModalOpened: false,
 };
 
@@ -44,6 +45,9 @@ export const getters = {
   },
   getBitcoinRate: (state) => {
     return state.bitcoinRate;
+  },
+  getEthereumRate: (state) => {
+    return state.ethereumRate;
   },
   getIsModalOpened: (state) => {
     return state.isModalOpened;
@@ -77,6 +81,9 @@ export const mutations = {
   },
   updateBitcoinRate(state, payload){
     state.bitcoinRate = payload
+  },
+  updateEthereumRate(state, payload){
+    state.ethereumRate = payload
   },
   updateIsModalOpened(state, payload){
     state.isModalOpened = payload
@@ -135,9 +142,8 @@ export const actions = {
     })
   },
 
-
-    // eslint-disable-next-line no-empty-pattern
-      updateUser({}, payload = new AuthenticationRequest().updateUser){
+  // eslint-disable-next-line no-empty-pattern
+  updateUser({}, payload = new AuthenticationRequest().updateUser){
         StoreUtils.commit(StoreUtils.mutations.auth.updateLoading, true)
         return AuthenticationService.callUpdateUserApi(payload).then(response=>{
             StoreUtils.commit(StoreUtils.mutations.auth.updateLoading, false)
@@ -263,8 +269,6 @@ export const actions = {
       StoreUtils.commit(StoreUtils.mutations.auth.updateLoading, false)
     })
   },
-
-
 
   //eslint-disable-next-line no-empty-pattern
   allUsers({}, payload = {}){

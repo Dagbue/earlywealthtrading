@@ -65,6 +65,7 @@ class StoreUtils {
       updateReadUserById: "auth/updateReadUserById",
       updateReadAllUsers: "auth/updateReadAllUsers",
       updateBitcoinRate: "auth/updateBitcoinRate",
+      updateEthereumRate: "auth/updateEthereumRate",
       updateIsModalOpened: "auth/updateIsModalOpened",
     },
     deposit: {
@@ -109,6 +110,7 @@ class StoreUtils {
       getReadUserById: "auth/getReadUserById",
       getReadAllUsers: "auth/getReadAllUsers",
       getBitcoinRate: "auth/getBitcoinRate",
+      getEthereumRate: "auth/getEthereumRate",
       getIsModalOpened: "auth/getIsModalOpened",
     },
     deposit: {
