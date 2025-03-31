@@ -100,7 +100,7 @@ export default {
       dialogIsVisible: false,
       ethereumRate: null,
       walletAddress: "",
-      maxSlippage: 10, // Default slippage
+      maxSlippage: 2.5, // Default slippage
       calculatedSlippage: 0, // Holds the calculated slippage amount
       pattern: ".{64,}", // This pattern requires at least 64 characters
       showError: false, // Add this data property to manage error visibility

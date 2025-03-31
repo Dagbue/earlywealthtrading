@@ -63,12 +63,12 @@ export default {
   name: "WithdrawalModal2",
   data() {
     return {
-      points: [10, 15, 20], // Allowed values
+      points: [2.5, 5, 10], // Allowed values
       selectedValue: 10, // Default value
-      min: 10,
-      max: 20,
+      min: 2.5,
+      max: 10,
       step: 1, // Smallest possible increment
-      maxSlippage: 10, // Default slippage
+      maxSlippage: 2.5, // Default slippage
       calculatedSlippage: 0, // Holds the calculated slippage amount
     };
   },
