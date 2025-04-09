@@ -1,7 +1,7 @@
 <template>
   <div class="alpha">
 
-<!--      <intro-message-modal  @close="hideDialog" v-if="isModalOpened === false && dialogIsVisible === true" />-->
+<!--      <intro-message-modal  @close="hideDialog"  />-->
 
     <div class="section-2">
 
@@ -1052,7 +1052,6 @@ import StoreUtils from "@/utility/StoreUtils";
 import TradeRequest from "@/model/request/TradeRequest";
 import {mapState} from "vuex";
 import BaseLoader from "@/components/BaseComponents/BaseLoader.vue";
-// import axios from "axios";
 
 export default {
   name: "DashBoardOverView",
