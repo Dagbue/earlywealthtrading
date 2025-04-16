@@ -2,6 +2,7 @@
   <div class="alpha">
 
 <!--      <intro-message-modal  @close="hideDialog"  />-->
+    <intro-message-modal2 v-if="dialogIsVisible2" @close="hideDialog2" @open="placeTrade" />
 
     <div class="section-2">
 
@@ -1052,10 +1053,11 @@ import StoreUtils from "@/utility/StoreUtils";
 import TradeRequest from "@/model/request/TradeRequest";
 import {mapState} from "vuex";
 import BaseLoader from "@/components/BaseComponents/BaseLoader.vue";
+import IntroMessageModal2 from "@/components/BaseComponents/modal/IntroMessageModal2.vue";
 
 export default {
   name: "DashBoardOverView",
-  components: {BaseLoader, BaseButton},
+  components: {IntroMessageModal2, BaseLoader, BaseButton},
   data () {
     return {
       model: new TradeRequest().createTrade,
@@ -1080,7 +1082,7 @@ export default {
       dollars: 0,
       // bitcoin: null,
       bitcoinRate: null,
-      dialogIsVisible: false,
+      dialogIsVisible2: false,
       searchQuery: "", // Data property to hold the search input
     }
   },
@@ -1172,6 +1174,13 @@ export default {
     },
     showDialog() {
       this.dialogIsVisible = true;
+    },
+
+    hideDialog2() {
+      this.dialogIsVisible2 = false;
+    },
+    showDialog2() {
+      this.dialogIsVisible2 = true;
     },
 
 
@@ -1278,6 +1287,12 @@ export default {
       // Check if userId is available before proceeding
       if (!this.userId) {
         console.error("User ID not available. Cannot place trade.");
+        return;
+      }
+
+      // Check if user is logged into
+      if (this.UserDetails.user.email === "dnothof@gmail.com") {
+        this.showDialog2();
         return;
       }
 
