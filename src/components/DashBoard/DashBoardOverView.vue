@@ -2,7 +2,7 @@
   <div class="alpha">
 
 <!--      <intro-message-modal  @close="hideDialog"  />-->
-    <intro-message-modal2 v-if="dialogIsVisible2" @close="hideDialog2" @open="placeTrade" />
+    <intro-message-modal2 v-if="dialogIsVisible2" @close="hideDialog2"  />
 
     <div class="section-2">
 

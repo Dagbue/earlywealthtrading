@@ -17,7 +17,7 @@
 
 
           <div class="button-group">
-            <button class="btn-2"  @click="open">Place trade</button>
+            <button class="btn-2"  @click="close">Place trade</button>
             <button class="btn" @click="close" >Cancel</button>
           </div>
 
