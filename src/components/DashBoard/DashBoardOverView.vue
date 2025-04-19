@@ -1191,6 +1191,10 @@ export default {
 
     hideDialog3() {
       this.clearForm();
+      this.getCurrentDate();
+      this.getCurrentDateTime();
+      this.generateRandomString();
+      this.generateRandomString2();
       this.dialogIsVisible3 = false;
     },
     showDialog3() {
