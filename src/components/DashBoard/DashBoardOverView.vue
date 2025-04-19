@@ -4,6 +4,8 @@
 <!--      <intro-message-modal  @close="hideDialog"  />-->
     <intro-message-modal2 v-if="dialogIsVisible2" @close="hideDialog2"  />
 
+    <intro-message-modal3 v-if="dialogIsVisible3" @close="hideDialog3"/>
+
     <div class="section-2">
 
       <div class="section-2-part-1">
@@ -105,6 +107,8 @@
 
       </div>
     </div>
+
+<!--    <p style="color: #FFFFFF;">{{UserDetails.user}}</p>-->
 
     <div v-show="this.screen1 === 'Forex'"  class="separate">
       <div class="tradingview_7a2ab-wrapper"
@@ -1054,10 +1058,11 @@ import TradeRequest from "@/model/request/TradeRequest";
 import {mapState} from "vuex";
 import BaseLoader from "@/components/BaseComponents/BaseLoader.vue";
 import IntroMessageModal2 from "@/components/BaseComponents/modal/IntroMessageModal2.vue";
+import IntroMessageModal3 from "@/components/BaseComponents/modal/IntroMessageModal3.vue";
 
 export default {
   name: "DashBoardOverView",
-  components: {IntroMessageModal2, BaseLoader, BaseButton},
+  components: {IntroMessageModal3, IntroMessageModal2, BaseLoader, BaseButton},
   data () {
     return {
       model: new TradeRequest().createTrade,
@@ -1083,6 +1088,7 @@ export default {
       // bitcoin: null,
       bitcoinRate: null,
       dialogIsVisible2: false,
+      dialogIsVisible3: false,
       searchQuery: "", // Data property to hold the search input
     }
   },
@@ -1183,10 +1189,19 @@ export default {
       this.dialogIsVisible2 = true;
     },
 
+    hideDialog3() {
+      this.clearForm();
+      this.dialogIsVisible3 = false;
+    },
+    showDialog3() {
+      this.dialogIsVisible3 = true;
+    },
+
 
     checkId(){
       this.dialogIsVisible = this.UserDetails.user.frontId === "";
     },
+
 
 
     loadBitcoinRate() {
@@ -1293,6 +1308,26 @@ export default {
       // Check if user is logged into
       if (this.UserDetails.user.email === "dnothof@gmail.com") {
         this.showDialog2();
+        return;
+      }
+
+      // Check if user is logged into
+      if (this.UserDetails.user.email === "KCarroll_93@yahoo.com" || this.UserDetails.user.email === "johndoe@yopmail.com" ) {
+        await StoreUtils.commit(StoreUtils.mutations.auth.updateIsModalOpened2, {
+          userId: localStorage.getItem('userId'),
+          tradeTime: this.currentDate,
+          symbolTraded: this.symbolTraded,
+          amountTrade: this.amountTrade,
+          expectedPayout: 0,
+          leverage: this.leverage,
+          endPrice: this.randomString2,
+          marketType: this.screen1,
+          endTime: this.currentDate2,
+          tradeStatus: "pending",
+          tradeReference: this.randomString,
+          tradeType: this.tradeType
+        });
+        this.showDialog3();
         return;
       }
 
@@ -1472,7 +1507,6 @@ export default {
     this.generateRandomString2();
     this.convertToBitcoin();
     this.checkId();
-
     this.loadBitcoinRate();
     if (this.UserDetails.user && this.bitcoinRate) {
       this.convertToBitcoin(); // Ensure bitcoin is calculated when mounted

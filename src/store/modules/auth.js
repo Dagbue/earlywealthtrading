@@ -18,6 +18,7 @@ export const state = {
   bitcoinRate: null,
   ethereumRate: null,
   isModalOpened: false,
+  isModalOpened2: false,
 };
 
 export const getters = {
@@ -51,6 +52,9 @@ export const getters = {
   },
   getIsModalOpened: (state) => {
     return state.isModalOpened;
+  },
+  getIsModalOpened2: (state) => {
+    return state.isModalOpened2;
   },
 };
 
@@ -87,6 +91,9 @@ export const mutations = {
   },
   updateIsModalOpened(state, payload){
     state.isModalOpened = payload
+  },
+  updateIsModalOpened2(state, payload){
+    state.isModalOpened2 = payload
   },
 };
 

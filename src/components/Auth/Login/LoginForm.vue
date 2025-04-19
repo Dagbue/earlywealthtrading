@@ -1,6 +1,6 @@
 <template>
   <div>
-  <word-carousel :words="['Maintenance  completed,  sorry  for  the  inconvenience  this  may  have  caused...']" />
+<!--  <word-carousel :words="['Maintenance  completed,  sorry  for  the  inconvenience  this  may  have  caused...']" />-->
   <div class="alpha" >
 
     <div class="section-left">
@@ -100,11 +100,11 @@ import BaseButton from "@/components/BaseComponents/buttons/BaseButton.vue";
 import StoreUtils from "@/utility/StoreUtils";
 import AuthenticationRequest from "@/model/request/AuthenticationRequest";
 import {mapState} from "vuex";
-import WordCarousel from "@/components/BaseComponents/WordCarousel.vue";
+
 
 export default {
   name: 'LoginForm',
-  components: {WordCarousel, BaseButton},
+  components: {BaseButton},
 
   data() {
     return {

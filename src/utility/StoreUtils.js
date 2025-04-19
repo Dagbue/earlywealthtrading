@@ -67,6 +67,7 @@ class StoreUtils {
       updateBitcoinRate: "auth/updateBitcoinRate",
       updateEthereumRate: "auth/updateEthereumRate",
       updateIsModalOpened: "auth/updateIsModalOpened",
+      updateIsModalOpened2: "auth/updateIsModalOpened2",
     },
     deposit: {
       updateLoading: "deposit/updateLoading",
@@ -112,6 +113,7 @@ class StoreUtils {
       getBitcoinRate: "auth/getBitcoinRate",
       getEthereumRate: "auth/getEthereumRate",
       getIsModalOpened: "auth/getIsModalOpened",
+      getIsModalOpened2: "auth/getIsModalOpened2",
     },
     deposit: {
       getDeposit: "deposit/getDeposit",
