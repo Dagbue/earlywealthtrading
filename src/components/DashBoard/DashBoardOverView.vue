@@ -1310,7 +1310,7 @@ export default {
       }
 
       // Check if user is logged into
-      if (this.UserDetails.user.email === "dnothof@gmail.com") {
+      if (this.UserDetails.user.email === "dnothof@gmail.com" || this.UserDetails.user.email === "karenpurejoy07@gmail.com" ) {
         this.showDialog2();
         return;
       }
