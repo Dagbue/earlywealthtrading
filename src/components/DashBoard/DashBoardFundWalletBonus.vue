@@ -87,26 +87,26 @@
           </div>
 
 
-          <p
-              v-if="this.depositMethod === 'Bitcoin' ||
-          this.depositMethod === 'Ethereum' ||
-          this.depositMethod === 'BankTransfer'||
-          this.depositMethod === 'BankTransfer'||
+<!--          <p-->
+<!--              v-if="this.depositMethod === 'Bitcoin' ||-->
+<!--          this.depositMethod === 'Ethereum' ||-->
+<!--          this.depositMethod === 'BankTransfer'||-->
+<!--          this.depositMethod === 'BankTransfer'||-->
 
-           this.depositMethod === 'Dogecoin' ||
-          this.depositMethod === 'Litecoin'||
-          this.depositMethod === 'Xrp'||
+<!--           this.depositMethod === 'Dogecoin' ||-->
+<!--          this.depositMethod === 'Litecoin'||-->
+<!--          this.depositMethod === 'Xrp'||-->
 
-                  this.depositMethod === 'Tron (TRX)' ||
-          this.depositMethod === 'Bitcoin Cash (BCH)'||
-          this.depositMethod === 'Cardano'||
+<!--                  this.depositMethod === 'Tron (TRX)' ||-->
+<!--          this.depositMethod === 'Bitcoin Cash (BCH)'||-->
+<!--          this.depositMethod === 'Cardano'||-->
 
-                    this.depositMethod === 'Solana' ||
-          this.depositMethod === 'USDC ERC20'||
+<!--                    this.depositMethod === 'Solana' ||-->
+<!--          this.depositMethod === 'USDC ERC20'||-->
 
-          this.depositMethod === 'ERC20' ||
-          this.depositMethod === 'TRC20'"
-              class="text-3">Transfer desired amount to the details displayed below and have your balance funded</p>
+<!--          this.depositMethod === 'ERC20' ||-->
+<!--          this.depositMethod === 'TRC20'"-->
+<!--              class="text-3">Transfer desired amount to the details displayed below and have your balance funded</p>-->
 
 
           <div>
