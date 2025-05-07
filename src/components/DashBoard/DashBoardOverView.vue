@@ -91,6 +91,23 @@
 
         <div class="vl-2"></div>
 
+<!--        <div v-show="isBonusUser" class="section-3-content">-->
+<!--          <div class="content-1">-->
+<!--            <p class="content-1-text-1">Bonus</p>-->
+<!--            <div>-->
+<!--              &lt;!&ndash;              <p class="content-1-text-2" v-if="approved === 'approved'">£ {{this.contacts.profits}}</p>&ndash;&gt;-->
+<!--              &lt;!&ndash;              <p class="content-1-text-2" v-else-if="approved === 'Pending'">£ ...</p>&ndash;&gt;-->
+<!--              <p class="content-1-text-2" >$ 50,000</p>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="content-2">-->
+<!--            <img src="@/assets/wallet-number-icon.svg" alt="wallet-balance-icon"/>-->
+<!--          </div>-->
+<!--        </div>-->
+
+<!--        <div v-show="isBonusUser" class="vl-2"></div>-->
+
+
         <div class="section-3-content">
           <div class="content-1">
             <p class="content-1-text-1">Currency</p>
@@ -1140,6 +1157,9 @@ export default {
         return (this.UserDetails.user.totalDepositedAmount / this.bitcoinRate).toFixed(8);
       }
       return 'Loading...'; // or any default value when data isn't available yet
+    },
+    isBonusUser() {
+      return this.UserDetails?.user?.email === 'KCarroll_93@yahoo.com';
     }
   },
 

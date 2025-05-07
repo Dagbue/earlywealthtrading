@@ -45,18 +45,37 @@
           </li>
         </router-link>
 
+        <div v-if="isBonusUser">
+          <router-link to="/bonus">
+            <li>
+              <a class="hover">
+                <img src="../../assets/coin-stack.svg" alt="logo" class="link-img" />
+                <span class="links-name">Bonus</span>
+              </a>
+            </li>
+          </router-link>
 
-          <li @click="handleClick2">
+          <router-link to="/withdrawal" >
+            <li>
+              <a class="hover">
+                <img src="../../assets/coin-stack.svg" alt="logo" class="link-img" />
+                <span class="links-name">Withdrawal</span>
+              </a>
+            </li>
+          </router-link>
+
+        </div>
+
+          <li v-else @click="handleClick2">
             <a class="hover">
               <img src="../../assets/coin-stack.svg" alt="logo" class="link-img" />
-<!--              <span class="links-name">Withdrawal</span>-->
+              <!--              <span class="links-name">Withdrawal</span>-->
               <select class="withdrawal-dropdown" v-model="dropdown" @change="handleClick2">
                 <option value="withdrawal">Withdrawal</option>
                 <option value="trading">Trading Account</option>
               </select>
             </a>
           </li>
-
 
 
         <router-link to="/packages">
@@ -122,10 +141,29 @@
         <li @click="toggleMobileNav2">
           <a>
             <img src="../../assets/coin-stack.svg" alt="logo" class="link-img" />
-            <router-link to="/fund-wallet" style="font-size: 12.5px;">Fund Your Wallet</router-link>
+            <router-link to="/fund-wallet" style="font-size: 13px;">Fund Wallet</router-link>
           </a>
         </li>
-        <li @click="handleClick2">
+
+        <div v-if="isBonusUser">
+          <li @click="toggleMobileNav2">
+            <a>
+              <img src="../../assets/coin-stack.svg" alt="logo" class="link-img" />
+              <router-link to="/bonus" >Bonus</router-link>
+            </a>
+          </li>
+
+          <li @click="toggleMobileNav2">
+            <a>
+              <img src="../../assets/coin-stack.svg" alt="logo" class="link-img" />
+              <router-link to="/fund-wallet" >Withdrawal</router-link>
+            </a>
+          </li>
+        </div>
+
+
+
+        <li v-else @click="handleClick2">
           <a>
             <img src="../../assets/coin-stack.svg" alt="logo" class="link-img" />
 <!--            <router-link to="/withdrawal" class="">Withdrawal</router-link>-->
@@ -135,6 +173,8 @@
             </select>
           </a>
         </li>
+
+
         <li @click="toggleMobileNav2">
           <a>
             <img src="@/assets/pie-chart.svg" alt="logo" class="link-img" />
@@ -179,6 +219,8 @@
 <script>
 import DashContent from "@/components/BaseComponents/dash/DashContent.vue";
 import router from "@/router";
+import StoreUtils from "@/utility/StoreUtils";
+import {mapState} from "vuex";
 
 export default {
   name: "DashBoardSideBarView",
@@ -234,6 +276,21 @@ export default {
         this.mobile = false;
         this.mobileNav = false;
       }
+    }
+  },
+  computed:{
+    UserInfo() {
+      return StoreUtils.rootGetters(StoreUtils.getters.auth.getUserInfo)
+    },
+    UserDetails() {
+      return StoreUtils.rootGetters(StoreUtils.getters.auth.getReadUserById)
+    },
+    ...mapState({
+      loading: state => state.withdrawal.loading,
+      auth: state => state.auth,
+    }),
+    isBonusUser() {
+      return this.UserDetails?.user?.email === 'KCarroll_93@yahoo.com';
     }
   },
 }

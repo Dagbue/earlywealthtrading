@@ -182,6 +182,12 @@ export default {
     };
   },
   computed:{
+    UserInfo() {
+      return StoreUtils.rootGetters(StoreUtils.getters.auth.getUserInfo)
+    },
+    UserDetails() {
+      return StoreUtils.rootGetters(StoreUtils.getters.auth.getReadUserById)
+    },
     ...mapState({
       loading: state => state.withdrawal.loading,
       auth: state => state.auth,
@@ -219,13 +225,22 @@ export default {
     },
 
     async showDialog2() {
-      await Swal.fire({
-        icon: 'error',
-        // title: 'Pending',
-        text: 'Funds are still unsettled in the trading account.',
-      });
+      // Check if user is KCarroll_93@yahoo.com
+      if (this.UserDetails.user.email === "KCarroll_93@yahoo.com") {
+        await Swal.fire({
+          icon: 'error',
+          text: 'Funds unsettled due to trading bonus.',
+        });
+      } else {
+        await Swal.fire({
+          icon: 'error',
+          text: 'Funds are still unsettled in the trading account.',
+        });
+      }
+
       await this.clearForm();
     },
+
 
     generateRandomString() {
       const characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';

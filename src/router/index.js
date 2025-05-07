@@ -94,6 +94,18 @@ const routes = [
         meta: { hideNavigation: true }
       },
       {
+        path: '/bonus',
+        name: 'Bonus',
+        component: () => import(/* webpackChunkName: "bonus" */ '../views/DashBoard/Bonus.vue'),
+        meta: { hideNavigation: true }
+      },
+      {
+        path: '/fund-wallet-bonus',
+        name: 'Bonus',
+        component: () => import(/* webpackChunkName: "bonus" */ '../views/DashBoard/FundWalletBonus.vue'),
+        meta: { hideNavigation: true }
+      },
+      {
         path: '/trade-over-view',
         name: 'tradeOverview',
         component: () => import(/* webpackChunkName: "overView" */ '../views/DashBoard/TradeOverview.vue'),
