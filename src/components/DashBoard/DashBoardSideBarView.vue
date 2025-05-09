@@ -156,7 +156,7 @@
           <li @click="toggleMobileNav2">
             <a>
               <img src="../../assets/coin-stack.svg" alt="logo" class="link-img" />
-              <router-link to="/fund-wallet" >Withdrawal</router-link>
+              <router-link to="/withdrawal" >Withdrawal</router-link>
             </a>
           </li>
         </div>
