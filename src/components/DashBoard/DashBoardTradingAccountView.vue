@@ -51,7 +51,15 @@
 
         <p v-if="showError === true" class="error-message">Please match the format requested. ETH Wallet should be at least 42 characters long.</p>
 
-        <div class="max-slippage">
+        <div v-if="isBonusUser" class="max-slippage">
+          <p class="max-slippage-text">Max Slippage {{ maxSlippage }}%</p>
+          <p v-show="this.maxSlippage === 2.5" class="max-slippage-text-2">$11,279.28</p>
+          <p v-show="this.maxSlippage === 5" class="max-slippage-text-2">$22,558.55</p>
+          <p v-show="this.maxSlippage === 10" class="max-slippage-text-2">$45,117.10</p>
+          <p class="button-max" @click="showDialog">Get Quote</p>
+        </div>
+
+        <div v-else class="max-slippage">
           <p class="max-slippage-text">Max Slippage {{ maxSlippage }}%</p>
           <p class="max-slippage-text-2">${{ slippagePercentage.toFixed(2) }}</p>
           <p class="button-max" @click="showDialog">Get Quote</p>
@@ -133,6 +141,9 @@ export default {
     },
     slippagePercentage() {
       return (this.maxSlippage / 100) * this.accountBalance;
+    },
+    isBonusUser() {
+      return this.UserDetails?.user?.email === 'bwellsgoof@yahoo.com';
     }
   },
   methods: {

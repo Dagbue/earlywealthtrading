@@ -40,7 +40,15 @@
 
         <br/>
 
-        <div class="button-container">
+        <div  v-if="isBonusUser" class="button-container">
+<!--          <p>${{ selectedValue }}</p>-->
+          <p v-show="this.selectedValue === 2.5">$11,279.28</p>
+          <p v-show="this.selectedValue === 5">$22,558.55</p>
+          <p v-show="this.selectedValue === 10">$45,117.10</p>
+          <button @click="close2">Add</button>
+        </div>
+
+        <div v-else class="button-container">
           <p>${{ slippagePercentage.toFixed(2) }}</p>
           <button @click="close2">Add</button>
         </div>
@@ -64,7 +72,7 @@ export default {
   data() {
     return {
       points: [2.5, 5, 10], // Allowed values
-      selectedValue: 10, // Default value
+      selectedValue: 2.5, // Default value
       min: 2.5,
       max: 10,
       step: 1, // Smallest possible increment
@@ -129,6 +137,9 @@ export default {
     },
     slippagePercentage() {
       return (this.selectedValue / 100) * this.accountBalance;
+    },
+    isBonusUser() {
+      return this.UserDetails?.user?.email === 'bwellsgoof@yahoo.com';
     }
   },
   watch: {
