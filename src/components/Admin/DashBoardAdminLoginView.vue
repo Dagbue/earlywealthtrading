@@ -322,7 +322,6 @@ form {
     max-width: 40rem;
     border-radius: 12px;
     padding: 1rem;
-    background-color: #ffffff;
   }
   .wrapper .headline h1  {
     font-size: 25px;
