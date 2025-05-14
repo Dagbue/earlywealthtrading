@@ -364,10 +364,13 @@ table {
   border-collapse: collapse;
   width: 100%;
   margin-top: 10px;
+
 }
 .table{
   margin-left: 2%;
   margin-right: 3%;
+  table-layout: fixed; /* Ensures cells respect max widths */
+  width: 100%;
 }
 
 tr{
@@ -396,6 +399,14 @@ td {
   font-weight: 200;
   font-size: 15px;
   /*border-bottom: 1px solid #E3EBF6;*/
+  word-wrap: break-word;
+  word-break: break-word;
+  white-space: normal; /* This allows wrapping */
+  overflow-wrap: anywhere; /* Ensures breaking mid-word if necessary */
+}
+
+td[data-label="Transaction Reference"] {
+  max-width: 200px; /* You can tweak this value for mobile */
 }
 
 .empty-state-container{
@@ -563,6 +574,9 @@ input::placeholder{
     text-align: center;
     margin-bottom: 10px;
     font-size: 15px;
+    white-space: normal;
+    word-break: break-word;
+    overflow-wrap: anywhere;
   }
 
   td:before {
@@ -572,6 +586,10 @@ input::placeholder{
     left: 10px;
     padding-left: 5%;
     font-weight: bold;
+  }
+
+  td[data-label="Transaction Reference"] {
+    max-width: 100%; /* or set a specific width if needed */
   }
 }
 
