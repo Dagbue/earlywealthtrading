@@ -26,7 +26,7 @@
           <div class="content-1">
             <p class="content-1-text-1">Bonus Balance</p>
             <div>
-              <p class="content-1-text-2" >$ 12,000</p>
+              <p class="content-1-text-2" >$ 5,000</p>
             </div>
           </div>
           <div class="content-2">
@@ -150,19 +150,6 @@
               <th>Date</th>
               <th>Status</th>
             </tr>
-            <!--            <div v-if="loading">-->
-            <!--              <div class="table-content">-->
-            <!--                <div class="name-wrapper-body">-->
-            <!--                  <p-->
-            <!--                      class="table-body-text"-->
-            <!--                      style="position: absolute;-->
-            <!--                    margin-left: 45%"-->
-            <!--                  >-->
-            <!--                    <base-loader/>-->
-            <!--                  </p>-->
-            <!--                </div>-->
-            <!--              </div>-->
-            <!--            </div>-->
             <tbody >
             <tr>
               <td data-label="Amount">$ 3,000</td>
@@ -180,6 +167,18 @@
               <td data-label="Amount">$ 35,000</td>
               <!--              <td data-label="Duration">20 trades</td>-->
               <td data-label="Date">MAY 12 11:10 AM</td>
+              <td data-label="Status">
+                <div>
+                  <p class="status-won" >Completed</p>
+                  <!--                  <p class="status-lost" v-show="child.tradeStatus === 'lost'">{{child.tradeStatus}}</p>-->
+                  <!--                  <p class="status-pending" v-show="child.tradeStatus === 'pending'">{{child.tradeStatus}}</p>-->
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td data-label="Amount">$ 7,000</td>
+              <!--              <td data-label="Duration">20 trades</td>-->
+              <td data-label="Date">MAY 22 7:05 AM</td>
               <td data-label="Status">
                 <div>
                   <p class="status-won" >Completed</p>
