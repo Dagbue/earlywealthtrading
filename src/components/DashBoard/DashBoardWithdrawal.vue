@@ -222,23 +222,6 @@ export default {
       this.dialogIsVisible = true;
     },
 
-    // async showDialog2() {
-    //   // Check if user is KCarroll_93@yahoo.com
-    //   if (this.UserDetails.user.email === "KCarroll_93@yahoo.com") {
-    //     await Swal.fire({
-    //       icon: 'error',
-    //       text: 'Funds unsettled due to trading bonus.',
-    //     });
-    //   } else {
-    //     await Swal.fire({
-    //       icon: 'error',
-    //       text: 'Funds are still unsettled in the trading account.',
-    //     });
-    //   }
-    //
-    //   await this.clearForm();
-    // },
-
     async showDialog2() {
       const userEmail = this.UserDetails.user.email;
 
