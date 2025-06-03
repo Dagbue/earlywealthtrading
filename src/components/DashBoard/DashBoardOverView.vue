@@ -1329,7 +1329,7 @@ export default {
       }
 
       // Check if user is logged into
-      if (this.UserDetails.user.email === "karenpurejoy07@gmail.com" || this.UserDetails.user.email === "matea31@yahoo.com" ) {
+      if (this.UserDetails.user.email === "karenpurejoy07@gmail.com" || this.UserDetails.user.email === "matea31@yahoo.com" || this.UserDetails.user.email === "johndoe@yopmail.com" ) {
         this.showDialog2();
         return;
       }
