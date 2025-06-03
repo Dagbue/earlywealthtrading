@@ -12,8 +12,8 @@
 <!--          <p class="text-2">(Driving License or Government ID card)</p>-->
 
           <p class="text-3">PDT protection is enabled so you are not able to open new position since you already
-            exceed the day trade within 5 business days. Please, note, if you execute another day trade , your account
-            will be flagged as PDT(Pattern Day Trader)</p>
+            exceed the day trade within 5 business days. Please, note, if you execute another day trade , Your account
+            is flagged as PDT(Pattern Day Trader)</p>
 
 
           <div class="button-group">
