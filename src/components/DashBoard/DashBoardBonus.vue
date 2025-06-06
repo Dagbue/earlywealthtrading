@@ -8,7 +8,7 @@
 
       <div class="section-2-part-2">
 
-        <p class="fund-wallet" @click="onPostClick">
+        <p v-show="isBonusUser2" class="fund-wallet" @click="onPostClick">
           <i class='bx bx-plus' ></i>
           Add deposit
         </p>
@@ -18,191 +18,354 @@
 
     <iframe scrolling="no" allowtransparency="true" frameborder="0" src="https://www.tradingview-widget.com/embed-widget/ticker-tape/#%7B%22colorTheme%22%3A%22dark%22%2C%22width%22%3A%22100%25%22%2C%22height%22%3A46%2C%22utm_source%22%3A%22infiniteprotrades.com%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22ticker-tape%22%2C%22page-uri%22%3A%22infiniteprotrades.com%2Findex.php%2Fuser%2FtradeCrypto%22%7D" title="ticker tape TradingView widget" lang="en" style="user-select: none; box-sizing: border-box; display: block; height: 65px; width: 99%; margin-bottom: 1%;"></iframe>
 
+    <div v-show="isBonusUser2" >
+      <div class="law">
+        <div class="section-3">
 
-    <div class="law">
-      <div class="section-3">
-
-        <div class="section-3-content">
-          <div class="content-1">
-            <p class="content-1-text-1">Bonus Balance</p>
-            <div>
-              <p class="content-1-text-2" >$ 5,000</p>
+          <div class="section-3-content">
+            <div class="content-1">
+              <p class="content-1-text-1">Bonus Balance</p>
+              <div>
+                <p class="content-1-text-2" >$ 5,000</p>
+              </div>
+            </div>
+            <div class="content-2">
+              <img src="@/assets/wallet-number-icon.svg" alt="wallet-balance-icon"/>
             </div>
           </div>
-          <div class="content-2">
-            <img src="@/assets/wallet-number-icon.svg" alt="wallet-balance-icon"/>
+
+          <div class="vl-2"></div>
+
+
+        </div>
+      </div>
+
+      <div class="last">
+        <div class="body">
+          <h2>My Bonus history</h2>
+          <div class="row trans-mgt">
+            <div class="form-group fg--search">
+              <button type="submit" @click.prevent="filterTrades"><i class="fa fa-search"></i></button>
+              <input style="color: #FFFFFF;" type="text" class="input" placeholder="Search bonus..." v-model="searchQuery" @input="filterTrades"/>
+            </div>
+            <div class="row filter_group">
+              <div class="action-content">
+                <p>Filter</p>
+              </div>
+            </div>
           </div>
         </div>
+        <div class="section-5">
 
-        <div class="vl-2"></div>
+          <!--        <div class="empty-state-container" v-if="this.readUserTrade.trades.length === 0">-->
+          <!--          <img src="@/assets/empty.svg" alt="empty" class="empty-state">-->
+          <!--          <p style="text-align: center;color: #FFFFFF; font-size: 13px;padding-bottom: 3px;" class="empty-state-text-1">You have nothing to see</p>-->
+          <!--          <p style="text-align: center;color: #FFFFFF; font-size: 13px;padding-bottom: 3px;" class="empty-state-text-2">This is where your Trade history will appear</p>-->
+
+          <!--        </div>-->
 
 
+          <div class="table"  >
+            <table>
+              <tr style="background-color: #FFFFFF;">
+                <th>Amount</th>
+                <th>Duration</th>
+                <th>Date</th>
+                <th>Status</th>
+              </tr>
+              <!--            <div v-if="loading">-->
+              <!--              <div class="table-content">-->
+              <!--                <div class="name-wrapper-body">-->
+              <!--                  <p-->
+              <!--                      class="table-body-text"-->
+              <!--                      style="position: absolute;-->
+              <!--                    margin-left: 45%"-->
+              <!--                  >-->
+              <!--                    <base-loader/>-->
+              <!--                  </p>-->
+              <!--                </div>-->
+              <!--              </div>-->
+              <!--            </div>-->
+              <tbody >
+              <tr>
+                <td data-label="Amount">$ 50,000</td>
+                <td data-label="Duration">20 trades</td>
+                <td data-label="Date">APR 28 12:27 PM</td>
+                <td data-label="Status">
+                  <div>
+                    <p class="status-won" >Completed</p>
+                    <!--                  <p class="status-lost" v-show="child.tradeStatus === 'lost'">{{child.tradeStatus}}</p>-->
+                    <!--                  <p class="status-pending" v-show="child.tradeStatus === 'pending'">{{child.tradeStatus}}</p>-->
+                  </div>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+
+            <div class="pagination">
+              <button @click="previousPage" :disabled="currentPage === 1" class="previous">Previous</button>
+              <!--            <div class="page-indicator">-->
+              <!--              Page {{ currentPage }} of {{ totalPages }}-->
+              <!--            </div>            -->
+              <div class="page-indicator">
+                Page 1 of 1
+              </div>
+              <button @click="nextPage" :disabled="currentPage === totalPages" class="previous">Next</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="last">
+        <div class="body">
+          <h2>Repayment history</h2>
+          <div class="row trans-mgt">
+            <div class="form-group fg--search">
+              <button type="submit" @click.prevent="filterTrades"><i class="fa fa-search"></i></button>
+              <input style="color: #FFFFFF;" type="text" class="input" placeholder="Search bonus..." v-model="searchQuery" @input="filterTrades"/>
+            </div>
+            <div class="row filter_group">
+              <div class="action-content">
+                <p>Filter</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="section-5">
+
+          <!--        <div class="empty-state-container" v-if="this.readUserTrade.trades.length === 0">-->
+          <!--          <img src="@/assets/empty.svg" alt="empty" class="empty-state">-->
+          <!--          <p style="text-align: center;color: #FFFFFF; font-size: 13px;padding-bottom: 3px;" class="empty-state-text-1">You have nothing to see</p>-->
+          <!--          <p style="text-align: center;color: #FFFFFF; font-size: 13px;padding-bottom: 3px;" class="empty-state-text-2">This is where your Trade history will appear</p>-->
+
+          <!--        </div>-->
+
+
+          <div class="table" >
+            <table>
+              <tr style="background-color: #FFFFFF;">
+                <th>Amount</th>
+                <!--              <th>Duration</th>-->
+                <th>Date</th>
+                <th>Status</th>
+              </tr>
+              <tbody >
+              <tr>
+                <td data-label="Amount">$ 3,000</td>
+                <!--              <td data-label="Duration">20 trades</td>-->
+                <td data-label="Date">MAY 12 10:37 AM</td>
+                <td data-label="Status">
+                  <div>
+                    <p class="status-won" >Completed</p>
+                    <!--                  <p class="status-lost" v-show="child.tradeStatus === 'lost'">{{child.tradeStatus}}</p>-->
+                    <!--                  <p class="status-pending" v-show="child.tradeStatus === 'pending'">{{child.tradeStatus}}</p>-->
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td data-label="Amount">$ 35,000</td>
+                <!--              <td data-label="Duration">20 trades</td>-->
+                <td data-label="Date">MAY 12 11:10 AM</td>
+                <td data-label="Status">
+                  <div>
+                    <p class="status-won" >Completed</p>
+                    <!--                  <p class="status-lost" v-show="child.tradeStatus === 'lost'">{{child.tradeStatus}}</p>-->
+                    <!--                  <p class="status-pending" v-show="child.tradeStatus === 'pending'">{{child.tradeStatus}}</p>-->
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td data-label="Amount">$ 7,000</td>
+                <!--              <td data-label="Duration">20 trades</td>-->
+                <td data-label="Date">MAY 22 7:05 AM</td>
+                <td data-label="Status">
+                  <div>
+                    <p class="status-won" >Completed</p>
+                    <!--                  <p class="status-lost" v-show="child.tradeStatus === 'lost'">{{child.tradeStatus}}</p>-->
+                    <!--                  <p class="status-pending" v-show="child.tradeStatus === 'pending'">{{child.tradeStatus}}</p>-->
+                  </div>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+
+            <div class="pagination">
+              <button @click="previousPage" :disabled="currentPage === 1" class="previous">Previous</button>
+              <!--            <div class="page-indicator">-->
+              <!--              Page {{ currentPage }} of {{ totalPages }}-->
+              <!--            </div>            -->
+              <div class="page-indicator">
+                Page 1 of 1
+              </div>
+              <button @click="nextPage" :disabled="currentPage === totalPages" class="previous">Next</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
+    <div v-show="isBonusUser" >
+      <div class="law">
+        <div class="section-3">
 
-    <div class="last">
-      <div class="body">
-        <h2>My Bonus history</h2>
-        <div class="row trans-mgt">
-          <div class="form-group fg--search">
-            <button type="submit" @click.prevent="filterTrades"><i class="fa fa-search"></i></button>
-            <input style="color: #FFFFFF;" type="text" class="input" placeholder="Search bonus..." v-model="searchQuery" @input="filterTrades"/>
+          <div class="section-3-content">
+            <div class="content-1">
+              <p class="content-1-text-1">Bonus Balance</p>
+              <div>
+                <p class="content-1-text-2" >$ 25,000</p>
+              </div>
+            </div>
+            <div class="content-2">
+              <img src="@/assets/wallet-number-icon.svg" alt="wallet-balance-icon"/>
+            </div>
           </div>
-          <div class="row filter_group">
-            <div class="action-content">
-              <p>Filter</p>
+
+          <div class="vl-2"></div>
+
+
+        </div>
+      </div>
+
+      <div class="last">
+        <div class="body">
+          <h2>My Bonus history</h2>
+          <div class="row trans-mgt">
+            <div class="form-group fg--search">
+              <button type="submit" @click.prevent="filterTrades"><i class="fa fa-search"></i></button>
+              <input style="color: #FFFFFF;" type="text" class="input" placeholder="Search bonus..." v-model="searchQuery" @input="filterTrades"/>
+            </div>
+            <div class="row filter_group">
+              <div class="action-content">
+                <p>Filter</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="section-5">
+
+          <!--        <div class="empty-state-container" v-if="this.readUserTrade.trades.length === 0">-->
+          <!--          <img src="@/assets/empty.svg" alt="empty" class="empty-state">-->
+          <!--          <p style="text-align: center;color: #FFFFFF; font-size: 13px;padding-bottom: 3px;" class="empty-state-text-1">You have nothing to see</p>-->
+          <!--          <p style="text-align: center;color: #FFFFFF; font-size: 13px;padding-bottom: 3px;" class="empty-state-text-2">This is where your Trade history will appear</p>-->
+
+          <!--        </div>-->
+
+
+          <div class="table"  >
+            <table>
+              <tr style="background-color: #FFFFFF;">
+                <th>Amount</th>
+                <th>Duration</th>
+                <th>Date</th>
+                <th>Status</th>
+              </tr>
+              <!--            <div v-if="loading">-->
+              <!--              <div class="table-content">-->
+              <!--                <div class="name-wrapper-body">-->
+              <!--                  <p-->
+              <!--                      class="table-body-text"-->
+              <!--                      style="position: absolute;-->
+              <!--                    margin-left: 45%"-->
+              <!--                  >-->
+              <!--                    <base-loader/>-->
+              <!--                  </p>-->
+              <!--                </div>-->
+              <!--              </div>-->
+              <!--            </div>-->
+              <tbody >
+              <tr>
+                <td data-label="Amount">$ 25,000</td>
+                <td data-label="Duration">20 trades</td>
+                <td data-label="Date">JUN 06 12:27 PM</td>
+                <td data-label="Status">
+                  <div>
+                    <p class="status-won" >Completed</p>
+                    <!--                  <p class="status-lost" v-show="child.tradeStatus === 'lost'">{{child.tradeStatus}}</p>-->
+                    <!--                  <p class="status-pending" v-show="child.tradeStatus === 'pending'">{{child.tradeStatus}}</p>-->
+                  </div>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+
+            <div class="pagination">
+              <button @click="previousPage" :disabled="currentPage === 1" class="previous">Previous</button>
+              <!--            <div class="page-indicator">-->
+              <!--              Page {{ currentPage }} of {{ totalPages }}-->
+              <!--            </div>            -->
+              <div class="page-indicator">
+                Page 1 of 1
+              </div>
+              <button @click="nextPage" :disabled="currentPage === totalPages" class="previous">Next</button>
             </div>
           </div>
         </div>
       </div>
-      <div class="section-5">
 
-<!--        <div class="empty-state-container" v-if="this.readUserTrade.trades.length === 0">-->
-<!--          <img src="@/assets/empty.svg" alt="empty" class="empty-state">-->
-<!--          <p style="text-align: center;color: #FFFFFF; font-size: 13px;padding-bottom: 3px;" class="empty-state-text-1">You have nothing to see</p>-->
-<!--          <p style="text-align: center;color: #FFFFFF; font-size: 13px;padding-bottom: 3px;" class="empty-state-text-2">This is where your Trade history will appear</p>-->
+      <div class="last">
+        <div class="body">
+          <h2>Repayment history</h2>
+          <div class="row trans-mgt">
+            <div class="form-group fg--search">
+              <button type="submit" @click.prevent="filterTrades"><i class="fa fa-search"></i></button>
+              <input style="color: #FFFFFF;" type="text" class="input" placeholder="Search bonus..." v-model="searchQuery" @input="filterTrades"/>
+            </div>
+            <div class="row filter_group">
+              <div class="action-content">
+                <p>Filter</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="section-5">
 
-<!--        </div>-->
+                  <div class="empty-state-container" >
+                    <img src="@/assets/empty.svg" alt="empty" class="empty-state">
+                    <p style="text-align: center;color: #FFFFFF; font-size: 13px;padding-bottom: 3px;" class="empty-state-text-1">You have nothing to see</p>
+                    <p style="text-align: center;color: #FFFFFF; font-size: 13px;padding-bottom: 3px;" class="empty-state-text-2">This is where your Trade Repayment will appear</p>
+
+                  </div>
 
 
-        <div class="table"  >
-          <table>
-            <tr style="background-color: #FFFFFF;">
-              <th>Amount</th>
-              <th>Duration</th>
-              <th>Date</th>
-              <th>Status</th>
-            </tr>
-<!--            <div v-if="loading">-->
-<!--              <div class="table-content">-->
-<!--                <div class="name-wrapper-body">-->
-<!--                  <p-->
-<!--                      class="table-body-text"-->
-<!--                      style="position: absolute;-->
-<!--                    margin-left: 45%"-->
-<!--                  >-->
-<!--                    <base-loader/>-->
-<!--                  </p>-->
-<!--                </div>-->
+<!--          <div class="table" >-->
+<!--            <table>-->
+<!--              <tr style="background-color: #FFFFFF;">-->
+<!--                <th>Amount</th>-->
+<!--                &lt;!&ndash;              <th>Duration</th>&ndash;&gt;-->
+<!--                <th>Date</th>-->
+<!--                <th>Status</th>-->
+<!--              </tr>-->
+<!--              <tbody >-->
+<!--              <tr>-->
+<!--                <td data-label="Amount">$ 3,000</td>-->
+<!--                &lt;!&ndash;              <td data-label="Duration">20 trades</td>&ndash;&gt;-->
+<!--                <td data-label="Date">MAY 12 10:37 AM</td>-->
+<!--                <td data-label="Status">-->
+<!--                  <div>-->
+<!--                    <p class="status-won" >Completed</p>-->
+<!--                    &lt;!&ndash;                  <p class="status-lost" v-show="child.tradeStatus === 'lost'">{{child.tradeStatus}}</p>&ndash;&gt;-->
+<!--                    &lt;!&ndash;                  <p class="status-pending" v-show="child.tradeStatus === 'pending'">{{child.tradeStatus}}</p>&ndash;&gt;-->
+<!--                  </div>-->
+<!--                </td>-->
+<!--              </tr>-->
+<!--              </tbody>-->
+<!--            </table>-->
+
+<!--            <div class="pagination">-->
+<!--              <button @click="previousPage" :disabled="currentPage === 1" class="previous">Previous</button>-->
+<!--              &lt;!&ndash;            <div class="page-indicator">&ndash;&gt;-->
+<!--              &lt;!&ndash;              Page {{ currentPage }} of {{ totalPages }}&ndash;&gt;-->
+<!--              &lt;!&ndash;            </div>            &ndash;&gt;-->
+<!--              <div class="page-indicator">-->
+<!--                Page 1 of 1-->
 <!--              </div>-->
+<!--              <button @click="nextPage" :disabled="currentPage === totalPages" class="previous">Next</button>-->
 <!--            </div>-->
-            <tbody >
-            <tr>
-              <td data-label="Amount">$ 50,000</td>
-              <td data-label="Duration">20 trades</td>
-              <td data-label="Date">APR 28 12:27 PM</td>
-              <td data-label="Status">
-                <div>
-                  <p class="status-won" >Completed</p>
-<!--                  <p class="status-lost" v-show="child.tradeStatus === 'lost'">{{child.tradeStatus}}</p>-->
-<!--                  <p class="status-pending" v-show="child.tradeStatus === 'pending'">{{child.tradeStatus}}</p>-->
-                </div>
-              </td>
-            </tr>
-            </tbody>
-          </table>
-
-          <div class="pagination">
-            <button @click="previousPage" :disabled="currentPage === 1" class="previous">Previous</button>
-<!--            <div class="page-indicator">-->
-<!--              Page {{ currentPage }} of {{ totalPages }}-->
-<!--            </div>            -->
-            <div class="page-indicator">
-              Page 1 of 1
-            </div>
-            <button @click="nextPage" :disabled="currentPage === totalPages" class="previous">Next</button>
-          </div>
+<!--          </div>-->
         </div>
       </div>
     </div>
 
-    <div class="last">
-      <div class="body">
-        <h2>Repayment history</h2>
-        <div class="row trans-mgt">
-          <div class="form-group fg--search">
-            <button type="submit" @click.prevent="filterTrades"><i class="fa fa-search"></i></button>
-            <input style="color: #FFFFFF;" type="text" class="input" placeholder="Search bonus..." v-model="searchQuery" @input="filterTrades"/>
-          </div>
-          <div class="row filter_group">
-            <div class="action-content">
-              <p>Filter</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="section-5">
-
-<!--        <div class="empty-state-container" v-if="this.readUserTrade.trades.length === 0">-->
-<!--          <img src="@/assets/empty.svg" alt="empty" class="empty-state">-->
-<!--          <p style="text-align: center;color: #FFFFFF; font-size: 13px;padding-bottom: 3px;" class="empty-state-text-1">You have nothing to see</p>-->
-<!--          <p style="text-align: center;color: #FFFFFF; font-size: 13px;padding-bottom: 3px;" class="empty-state-text-2">This is where your Trade history will appear</p>-->
-
-<!--        </div>-->
-
-
-        <div class="table" >
-          <table>
-            <tr style="background-color: #FFFFFF;">
-              <th>Amount</th>
-<!--              <th>Duration</th>-->
-              <th>Date</th>
-              <th>Status</th>
-            </tr>
-            <tbody >
-            <tr>
-              <td data-label="Amount">$ 3,000</td>
-<!--              <td data-label="Duration">20 trades</td>-->
-              <td data-label="Date">MAY 12 10:37 AM</td>
-              <td data-label="Status">
-                <div>
-                  <p class="status-won" >Completed</p>
-                  <!--                  <p class="status-lost" v-show="child.tradeStatus === 'lost'">{{child.tradeStatus}}</p>-->
-                  <!--                  <p class="status-pending" v-show="child.tradeStatus === 'pending'">{{child.tradeStatus}}</p>-->
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td data-label="Amount">$ 35,000</td>
-              <!--              <td data-label="Duration">20 trades</td>-->
-              <td data-label="Date">MAY 12 11:10 AM</td>
-              <td data-label="Status">
-                <div>
-                  <p class="status-won" >Completed</p>
-                  <!--                  <p class="status-lost" v-show="child.tradeStatus === 'lost'">{{child.tradeStatus}}</p>-->
-                  <!--                  <p class="status-pending" v-show="child.tradeStatus === 'pending'">{{child.tradeStatus}}</p>-->
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td data-label="Amount">$ 7,000</td>
-              <!--              <td data-label="Duration">20 trades</td>-->
-              <td data-label="Date">MAY 22 7:05 AM</td>
-              <td data-label="Status">
-                <div>
-                  <p class="status-won" >Completed</p>
-                  <!--                  <p class="status-lost" v-show="child.tradeStatus === 'lost'">{{child.tradeStatus}}</p>-->
-                  <!--                  <p class="status-pending" v-show="child.tradeStatus === 'pending'">{{child.tradeStatus}}</p>-->
-                </div>
-              </td>
-            </tr>
-            </tbody>
-          </table>
-
-          <div class="pagination">
-            <button @click="previousPage" :disabled="currentPage === 1" class="previous">Previous</button>
-            <!--            <div class="page-indicator">-->
-            <!--              Page {{ currentPage }} of {{ totalPages }}-->
-            <!--            </div>            -->
-            <div class="page-indicator">
-              Page 1 of 1
-            </div>
-            <button @click="nextPage" :disabled="currentPage === totalPages" class="previous">Next</button>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 
 </template>
@@ -291,6 +454,16 @@ export default {
         return (this.UserDetails.user.totalDepositedAmount / this.bitcoinRate).toFixed(8);
       }
       return 'Loading...'; // or any default value when data isn't available yet
+    },
+    isBonusUser() {
+      const bonusEmails = ['dnothof@gmail.com'];
+      const email = this.UserDetails?.user?.email;
+      return bonusEmails.includes(email);
+    },
+    isBonusUser2() {
+      const bonusEmails = ['KCarroll_93@yahoo.com'];
+      const email = this.UserDetails?.user?.email;
+      return bonusEmails.includes(email);
     }
   },
 

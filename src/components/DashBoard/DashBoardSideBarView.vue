@@ -156,7 +156,7 @@
           <li @click="toggleMobileNav2">
             <a>
               <img src="../../assets/coin-stack.svg" alt="logo" class="link-img" />
-              <router-link to="/fund-wallet" >Withdrawal</router-link>
+              <router-link to="/withdrawal" >Withdrawal</router-link>
             </a>
           </li>
         </div>
@@ -290,8 +290,11 @@ export default {
       auth: state => state.auth,
     }),
     isBonusUser() {
-      return this.UserDetails?.user?.email === 'KCarroll_93@yahoo.com';
+      const bonusEmails = ['KCarroll_93@yahoo.com', 'dnothof@gmail.com'];
+      const email = this.UserDetails?.user?.email;
+      return bonusEmails.includes(email);
     }
+
   },
 }
 
