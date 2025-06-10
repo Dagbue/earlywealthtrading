@@ -26,7 +26,7 @@
             <div class="content-1">
               <p class="content-1-text-1">Bonus Balance</p>
               <div>
-                <p class="content-1-text-2" >$ 3,000</p>
+                <p class="content-1-text-2" >$ 0</p>
               </div>
             </div>
             <div class="content-2">
@@ -190,6 +190,18 @@
                 <td data-label="Amount">$ 2,000</td>
                 <!--              <td data-label="Duration">20 trades</td>-->
                 <td data-label="Date">JUN 10 11:09 AM</td>
+                <td data-label="Status">
+                  <div>
+                    <p class="status-won" >Completed</p>
+                    <!--                  <p class="status-lost" v-show="child.tradeStatus === 'lost'">{{child.tradeStatus}}</p>-->
+                    <!--                  <p class="status-pending" v-show="child.tradeStatus === 'pending'">{{child.tradeStatus}}</p>-->
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td data-label="Amount">$ 3,000</td>
+                <!--              <td data-label="Duration">20 trades</td>-->
+                <td data-label="Date">JUN 10 14:36 PM</td>
                 <td data-label="Status">
                   <div>
                     <p class="status-won" >Completed</p>
