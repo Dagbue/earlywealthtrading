@@ -225,14 +225,16 @@ export default {
     async showDialog2() {
       const userEmail = this.UserDetails.user.email;
 
-      if (userEmail === "KCarroll_93@yahoo.com") {
-        await Swal.fire({
-          icon: 'error',
-          text: 'Funds unsettled due to trading bonus.',
-        });
-      } else if (
-          userEmail === "bwellsgoof@yahoo.com" ||
+      if (userEmail === "KCarroll_93@yahoo.com" ||
           userEmail === "johndoe@yopmail.com"
+      ) {
+        // await Swal.fire({
+        //   icon: 'error',
+        //   text: 'Funds unsettled due to trading bonus.',
+        // });
+        this.showDialog()
+      } else if (
+          userEmail === "bwellsgoof@yahoo.com"
       ) {
         await StoreUtils.dispatch(StoreUtils.actions.withdrawal.withdrawalCreate, {
           userId : this.userId,
