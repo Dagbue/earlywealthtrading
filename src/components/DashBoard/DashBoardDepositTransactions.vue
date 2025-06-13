@@ -57,7 +57,7 @@
           <tbody v-else v-for="child in paginatedItems" :key="child.key">
             <tr>
               <td data-label="S/N">{{child.index}}</td> <!-- Assuming 'child.index' is your serial number or similar -->
-              <td data-label="Amount">{{child.amount}}</td>
+              <td data-label="Amount">{{child.amount | formatAmount2}}</td>
               <td data-label="Transaction Type">{{child.transactionType}}</td>
               <td data-label="Transaction Reference">{{child.transactionReference}}</td>
               <td data-label="Date">{{child.createdAt | formatDate}}</td>

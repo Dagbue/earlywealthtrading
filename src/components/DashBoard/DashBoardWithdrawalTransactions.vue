@@ -88,9 +88,12 @@
           <tbody v-else v-for="child in paginatedItems" :key="child.key">
           <tr>
             <td data-label="S/N">{{child.sn}}</td> <!-- Assuming there's a serial number (sn) property -->
-            <td data-label="Amount">{{child.amount}}</td>
+            <td data-label="Amount">{{child.amount | formatAmount2}}</td>
             <td data-label="Transaction Type">{{child.transactionType}}</td>
-            <td data-label="Transaction Reference">{{child.transactionReference}}</td>
+<!--            <td data-label="Transaction Reference">{{child.transactionReference}}</td>            -->
+            <td data-label="Transaction Reference">
+              0xf7fe93668cf7b4b494ff73fe22c7b24cb583980baab5ad6e6d11465d7097e623
+            </td>
             <td data-label="Date">{{child.createdAt | formatDate}}</td>
             <td data-label="Status">
               <div>
