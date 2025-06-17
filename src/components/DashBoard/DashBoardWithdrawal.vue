@@ -250,7 +250,7 @@ export default {
       } else {
         await Swal.fire({
           icon: 'error',
-          text: 'Funds are still unsettled in the trading account.',
+          text: 'Funds are still Unsettled due to trading bonus.',
         });
       }
 
