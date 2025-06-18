@@ -1,5 +1,6 @@
 <template>
   <div class="alpha">
+    <intro-message-modal4 v-if="dialogIsVisible2" @close="hideDialog2"/>
     <div class="body">
       <h2>Trade Overview</h2>
       <div class="row trans-mgt">
@@ -9,10 +10,14 @@
           <input style="color: #FFFFFF;" type="text" class="input" placeholder="Search trades..." v-model="searchQuery" @input="filterTrades"/>
         </div>
 
-        <div class="row filter_group">
-          <!--          <div class="blue">Download transactions</div>-->
+        <div class="row filter_group right">
+<!--          <div class="blue">Track</div>-->
+          <div class="action-content" @click="next">
+            <img width="17" height="17" src="@/assets/icons8-bell-30.png" alt="alarm"/>
+            <p>Track</p>
+          </div>
           <div class="action-content">
-<!--            <img src="@/assets/Filterslines.svg"  alt="Export"/>-->
+            <img width="17" height="17" src="@/assets/Filterslines.svg"  alt="Export"/>
             <p>Filter</p>
           </div>
         </div>
@@ -110,10 +115,11 @@
 import StoreUtils from "@/utility/StoreUtils";
 import {mapState} from "vuex";
 import BaseLoader from "@/components/BaseComponents/BaseLoader.vue";
+import IntroMessageModal4 from "@/components/BaseComponents/modal/IntroMessageModal4.vue";
 
 export default {
   name: "DashBoardTradeOverview",
-  components: {BaseLoader},
+  components: {IntroMessageModal4, BaseLoader},
   data () {
     return {
       history: [],
@@ -123,6 +129,7 @@ export default {
       userId: "",
       userInfo: "",
       searchQuery: "", // Data property to hold the search input
+      dialogIsVisible2: false,
     }
   },
   computed:{
@@ -161,6 +168,13 @@ export default {
     }),
   },
   methods: {
+
+    hideDialog2() {
+      this.dialogIsVisible2 = false;
+    },
+    showDialog2() {
+      this.dialogIsVisible2 = true;
+    },
     previousPage() {
       if (this.currentPage > 1) {
         this.currentPage--;
@@ -182,6 +196,10 @@ export default {
     filterTrades() {
       // Reset to the first page when filtering
       this.currentPage = 1;
+    },
+
+    next() {
+      this.showDialog2();
     },
 
   },
@@ -296,7 +314,7 @@ h2{
 }
 .filter_group{
   margin-left: auto;
-  gap: 16px;
+  gap: 10px;
 }
 
 .white{
@@ -355,7 +373,7 @@ h2{
 }
 
 .fa-search{
-  color: #667085;
+  color: #ffffff;
   margin-right: 10px;
 }
 table {
@@ -449,13 +467,16 @@ td {
   align-items: center;
   align-content: center;
   padding: 8px 20px;
-  gap: 8px;
+  gap: 5px;
   /*width: 88px;*/
-  height: 36px;
+  height: 34px;
   background: #0f171c;
   border: 0.5px solid #3C4A57FF;
   box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
   border-radius: 4px;
+}
+
+.right{
   margin-right: 13px;
 }
 
@@ -575,7 +596,7 @@ input::placeholder{
 
 @media (max-width: 500px) {
   .filter_group{
-    display: none;
+    margin-left: 2%;
   }
 
   .fg--search {

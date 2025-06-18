@@ -165,6 +165,12 @@ const routes = [
         meta: { hideNavigation: true },
       },
       {
+        path: '/trackView',
+        name: 'TrackView',
+        component: () => import(/* webpackChunkName: "overView" */ '../views/DashBoard/TrackView.vue'),
+        meta: { hideNavigation: true },
+      },
+      {
         path: '/settings',
         name: 'settings',
         component: () => import(/* webpackChunkName: "overView" */ '../views/DashBoard/Settings.vue'),
