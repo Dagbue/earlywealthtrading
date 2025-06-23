@@ -241,7 +241,7 @@
             <div class="content-1">
               <p class="content-1-text-1">Bonus Balance</p>
               <div>
-                <p class="content-1-text-2" >$ 25,000</p>
+                <p class="content-1-text-2" >$ 15,000</p>
               </div>
             </div>
             <div class="content-2">
@@ -331,6 +331,7 @@
         </div>
       </div>
 
+
       <div class="last">
         <div class="body">
           <h2>Repayment history</h2>
@@ -348,49 +349,49 @@
         </div>
         <div class="section-5">
 
-                  <div class="empty-state-container" >
-                    <img src="@/assets/empty.svg" alt="empty" class="empty-state">
-                    <p style="text-align: center;color: #FFFFFF; font-size: 13px;padding-bottom: 3px;" class="empty-state-text-1">You have nothing to see</p>
-                    <p style="text-align: center;color: #FFFFFF; font-size: 13px;padding-bottom: 3px;" class="empty-state-text-2">This is where your Trade Repayment will appear</p>
+          <!--        <div class="empty-state-container" v-if="this.readUserTrade.trades.length === 0">-->
+          <!--          <img src="@/assets/empty.svg" alt="empty" class="empty-state">-->
+          <!--          <p style="text-align: center;color: #FFFFFF; font-size: 13px;padding-bottom: 3px;" class="empty-state-text-1">You have nothing to see</p>-->
+          <!--          <p style="text-align: center;color: #FFFFFF; font-size: 13px;padding-bottom: 3px;" class="empty-state-text-2">This is where your Trade history will appear</p>-->
 
+          <!--        </div>-->
+
+
+          <div class="table" >
+            <table>
+              <tr style="background-color: #FFFFFF;">
+                <th>Amount</th>
+                <!--              <th>Duration</th>-->
+                <th>Date</th>
+                <th>Status</th>
+              </tr>
+              <tbody >
+              <tr>
+                <td data-label="Amount">$ 10,000</td>
+                <!--              <td data-label="Duration">20 trades</td>-->
+                <td data-label="Date">JUN 23 14:35 PM</td>
+                <td data-label="Status">
+                  <div>
+                    <p class="status-won" >Completed</p>
+                    <!--                  <p class="status-lost" v-show="child.tradeStatus === 'lost'">{{child.tradeStatus}}</p>-->
+                    <!--                  <p class="status-pending" v-show="child.tradeStatus === 'pending'">{{child.tradeStatus}}</p>-->
                   </div>
+                </td>
+              </tr>
+              </tbody>
+            </table>
 
-
-<!--          <div class="table" >-->
-<!--            <table>-->
-<!--              <tr style="background-color: #FFFFFF;">-->
-<!--                <th>Amount</th>-->
-<!--                &lt;!&ndash;              <th>Duration</th>&ndash;&gt;-->
-<!--                <th>Date</th>-->
-<!--                <th>Status</th>-->
-<!--              </tr>-->
-<!--              <tbody >-->
-<!--              <tr>-->
-<!--                <td data-label="Amount">$ 3,000</td>-->
-<!--                &lt;!&ndash;              <td data-label="Duration">20 trades</td>&ndash;&gt;-->
-<!--                <td data-label="Date">MAY 12 10:37 AM</td>-->
-<!--                <td data-label="Status">-->
-<!--                  <div>-->
-<!--                    <p class="status-won" >Completed</p>-->
-<!--                    &lt;!&ndash;                  <p class="status-lost" v-show="child.tradeStatus === 'lost'">{{child.tradeStatus}}</p>&ndash;&gt;-->
-<!--                    &lt;!&ndash;                  <p class="status-pending" v-show="child.tradeStatus === 'pending'">{{child.tradeStatus}}</p>&ndash;&gt;-->
-<!--                  </div>-->
-<!--                </td>-->
-<!--              </tr>-->
-<!--              </tbody>-->
-<!--            </table>-->
-
-<!--            <div class="pagination">-->
-<!--              <button @click="previousPage" :disabled="currentPage === 1" class="previous">Previous</button>-->
-<!--              &lt;!&ndash;            <div class="page-indicator">&ndash;&gt;-->
-<!--              &lt;!&ndash;              Page {{ currentPage }} of {{ totalPages }}&ndash;&gt;-->
-<!--              &lt;!&ndash;            </div>            &ndash;&gt;-->
-<!--              <div class="page-indicator">-->
-<!--                Page 1 of 1-->
-<!--              </div>-->
-<!--              <button @click="nextPage" :disabled="currentPage === totalPages" class="previous">Next</button>-->
-<!--            </div>-->
-<!--          </div>-->
+            <div class="pagination">
+              <button @click="previousPage" :disabled="currentPage === 1" class="previous">Previous</button>
+              <!--            <div class="page-indicator">-->
+              <!--              Page {{ currentPage }} of {{ totalPages }}-->
+              <!--            </div>            -->
+              <div class="page-indicator">
+                Page 1 of 1
+              </div>
+              <button @click="nextPage" :disabled="currentPage === totalPages" class="previous">Next</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
