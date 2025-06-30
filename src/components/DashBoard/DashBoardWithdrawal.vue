@@ -222,11 +222,38 @@ export default {
       this.dialogIsVisible = true;
     },
 
+    // async showDialog2() {
+    //   const userEmail = this.UserDetails.user.email;
+    //
+    //   if (userEmail === "KCarroll_93@yahoo.com" ||
+    //       userEmail === "monika19722@hotmail.com" ||
+    //       userEmail === "bwellsgoof@yahoo.com"
+    //
+    //   ) {
+    //     // await Swal.fire({
+    //     //   icon: 'error',
+    //     //   text: 'Funds unsettled due to trading bonus.',
+    //     // });
+    //     this.showDialog()
+    //   }else {
+    //     await Swal.fire({
+    //       icon: 'error',
+    //       // text: 'Funds are still Unsettled due to trading bonus.',
+    //       text: 'Funds are still unsettled in the trading account.',
+    //     });
+    //   }
+    //
+    //   await this.clearForm();
+    // },
+
+
     async showDialog2() {
       const userEmail = this.UserDetails.user.email;
 
       if (userEmail === "KCarroll_93@yahoo.com" ||
-          userEmail === "johndoe@yopmail.com"
+          userEmail === "monika19722@hotmail.com" ||
+          userEmail === "bwellsgoof@yahoo.com"
+
       ) {
         // await Swal.fire({
         //   icon: 'error',
@@ -234,19 +261,12 @@ export default {
         // });
         this.showDialog()
       } else if (
-          userEmail === "bwellsgoof@yahoo.com"
+          userEmail === "dnothof@gmail.com"
       ) {
-        await StoreUtils.dispatch(StoreUtils.actions.withdrawal.withdrawalCreate, {
-          userId : this.userId,
-          amount : this.model.amount,
-          transactionMethod : this.withdrawalmethod,
-          transactionType : "withdrawal",
-          transactionReference : this.randomString,
-          additionalComment : this.model.additionalComment,
-          walletAddress : this.model.walletAddress
-        })
-        this.dialogIsVisible = true;
-        await this.clearForm();
+        await Swal.fire({
+          icon: 'error',
+          text: 'Funds unsettled due to trading bonus.',
+        });
       } else {
         await Swal.fire({
           icon: 'error',
