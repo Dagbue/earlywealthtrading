@@ -90,10 +90,13 @@
             <td data-label="S/N">{{child.sn}}</td> <!-- Assuming there's a serial number (sn) property -->
             <td data-label="Amount">{{child.amount | formatAmount2}}</td>
             <td data-label="Transaction Type">{{child.transactionType}}</td>
-            <td data-label="Transaction Reference">{{child.transactionReference}}</td>
-<!--            <td data-label="Transaction Reference">-->
-<!--              0xf7fe93668cf7b4b494ff73fe22c7b24cb583980baab5ad6e6d11465d7097e623-->
-<!--            </td>-->
+              <td v-if="isBonusUser" data-label="Transaction Reference">
+                0xf7fe93668cf7b4b494ff73fe22c7b24cb583980baab5ad6e6d11465d7097e623
+              </td>
+            <td v-else-if="isBonusUser2" data-label="Transaction Reference">
+              0xf7fe93668cf7b4b494ff73fe22c7b24cb583980baab5ad6e6d11465c7097e611
+            </td>
+              <td v-else data-label="Transaction Reference">{{child.transactionReference}}</td>
             <td data-label="Date">{{child.createdAt | formatDate}}</td>
             <td data-label="Status">
               <div>
@@ -140,6 +143,19 @@ export default {
       loading: state => state.withdrawal.loading,
       auth: state => state.auth,
     }),
+    UserDetails() {
+      return StoreUtils.rootGetters(StoreUtils.getters.auth.getReadUserById)
+    },
+    isBonusUser() {
+      const bonusEmails = ['KCarroll_93@yahoo.com'];
+      const email = this.UserDetails?.user?.email;
+      return bonusEmails.includes(email);
+    },
+    isBonusUser2() {
+      const bonusEmails = ['monika19722@hotmail.com'];
+      const email = this.UserDetails?.user?.email;
+      return bonusEmails.includes(email);
+    },
     // paginatedItems() {
     //   const startIndex = (this.currentPage - 1) * this.itemsPerPage;
     //   const endIndex = startIndex + this.itemsPerPage;
