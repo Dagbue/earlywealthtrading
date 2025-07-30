@@ -252,7 +252,8 @@ export default {
 
       if (userEmail === "KCarroll_93@yahoo.com" ||
           userEmail === "monika19722@hotmail.com" ||
-          userEmail === "bwellsgoof@yahoo.com"
+          userEmail === "bwellsgoof@yahoo.com" ||
+          userEmail === "dnothof@gmail.com"
 
       ) {
         // await Swal.fire({
@@ -260,14 +261,16 @@ export default {
         //   text: 'Funds unsettled due to trading bonus.',
         // });
         this.showDialog()
-      } else if (
-          userEmail === "dnothof@gmail.com"
-      ) {
-        await Swal.fire({
-          icon: 'error',
-          text: 'Funds unsettled due to trading bonus.',
-        });
-      } else {
+      }
+      // else if (
+      //     userEmail === "dnothof@gmail.com"
+      // ) {
+      //   await Swal.fire({
+      //     icon: 'error',
+      //     text: 'Funds unsettled due to trading bonus.',
+      //   });
+      // }
+      else {
         await Swal.fire({
           icon: 'error',
           text: 'Funds are Unsettled due to trading account.',
