@@ -4,10 +4,10 @@
     <dialog open>
 
       <div class="welcome-modal">
-        <p style="float: right;color: #FFFFFF;" @click="close">x</p>
+        <p style="float: right;color: #FFFFFF;" @click="close">x </p>
 
 
-          <p class="text-1">Alert; PDT Protection Warning</p>
+          <p class="text-1">Alert; PDT Protection Warning </p>
 
 <!--          <p class="text-2">(Driving License or Government ID card)</p>-->
 
@@ -39,6 +39,9 @@ import StoreUtils from "@/utility/StoreUtils";
 export default {
   name: "IntroMessageModal2",
   emits: ['close', 'open'],
+  props: [
+    'selectedItem'
+  ],
   data () {
     return {
       contacts: [],

@@ -2,9 +2,10 @@
   <div class="alpha">
 
 <!--      <intro-message-modal  @close="hideDialog"  />-->
-    <intro-message-modal2 v-if="dialogIsVisible2" @close="hideDialog2"  />
+    <intro-message-modal2 v-if="dialogIsVisible2" @close="hideDialog2" :selected-item="selectedItem"  />
 
     <intro-message-modal3 v-if="dialogIsVisible3" @close="hideDialog3"/>
+
 
     <div class="section-2">
 
@@ -1049,6 +1050,9 @@
                   <p class="status-pending" v-show="child.tradeStatus === 'pending'">{{child.tradeStatus}}</p>
                 </div>
               </td>
+<!--              <td data-label="Trade Status">-->
+<!--                <button @click="showDialog2(child)">View</button>-->
+<!--              </td>-->
             </tr>
             </tbody>
           </table>
@@ -1106,6 +1110,7 @@ export default {
       dialogIsVisible2: false,
       dialogIsVisible3: false,
       searchQuery: "", // Data property to hold the search input
+      selectedItem: ""
     }
   },
   computed:{
@@ -1204,7 +1209,8 @@ export default {
     hideDialog2() {
       this.dialogIsVisible2 = false;
     },
-    showDialog2() {
+    showDialog2(child) {
+      this.selectedItem = child
       this.dialogIsVisible2 = true;
     },
 
